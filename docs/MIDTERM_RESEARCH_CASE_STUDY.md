@@ -2,7 +2,7 @@
 **Course**: STET301 — Human Computer Interaction  
 **Institution**: Vijaybhoomi School of Science & Technology, Vijaybhoomi University  
 **Project**: VUFIX — Hostel Maintenance & Management Portal  
-**Authors**: Aryaman Saboo (2024VUGP0039) & Parth Pawar (2024VUGP0021)  
+**Author**: Parth Pawar (Roll No: 2024VUGP0021)  
 **Academic Focus**: Personas, Empathy Maps, Card Sorting Studies, and IA Architecture Evolution (V1 vs V2)  
 **Session**: Academic Year 2026  
 
@@ -21,9 +21,9 @@ This research paper documents the foundational human-computer interaction resear
 ## 2. User Personas & Context Scenarios
 
 ### Persona 1: Primary Student User
-- **Name**: Aryaman Saboo
+- **Name**: Parth Pawar
 - **Role**: 3rd Year B.Tech Computer Science & Engineering
-- **Demographics**: Age 21, resident of Hostel A, Block B3, Room B3-304
+- **Demographics**: Age 21, resident of Hostel A, Block A1, Room A1-101
 - **Tech Fluency**: Advanced (frequently uses cloud IDEs, web dashboards, and mobile banking)
 - **Living Context**: Shares a double-occupancy room, works late nights on coding assignments.
 - **Frustrations**:
@@ -71,7 +71,7 @@ This research paper documents the foundational human-computer interaction resear
 
 ## 3. Empathy Maps
 
-### 3.1 Student Empathy Map (Aryaman Saboo)
+### 3.1 Student Empathy Map (Parth Pawar)
 
 ```
 ┌───────────────────────────────────────────────┬───────────────────────────────────────────────┐
@@ -173,7 +173,7 @@ Based on card sorting and usability stress-testing, we decoupled the architectur
 [IA Tree V2 — Dual-Role Synchronized Architecture (VUFIX Final)]
 │
 ├── 🔑 Authentication & Role Switcher
-│   ├── Student Login (Pre-authenticated: Aryaman Saboo / Parth Pawar)
+│   ├── Student Login (Pre-authenticated: Parth Pawar)
 │   ├── Student Sign Up (Mock Registration)
 │   └── Warden / Admin Login (Warden Rinu Babu)
 │

@@ -1,8 +1,7 @@
 # 5-MINUTE PRESENTATION SLIDE DECK & SPEAKER SCRIPT
 **Course**: STET301 — Human Computer Interaction (End-Term Examination)  
 **Project**: VUFIX — Hostel Maintenance & Management Portal  
-**Student Name**: Aryaman Saboo (Roll No: 2024VUGP0039)  
-**Secondary Contributor**: Parth Pawar (Roll No: 2024VUGP0021)  
+**Student Presenter**: Parth Pawar (Roll No: 2024VUGP0021)  
 **Institution**: Vijaybhoomi School of Science & Technology, Vijaybhoomi University  
 **Rubric Component**: 5-Minute Presentation (25% Weightage / 10 Marks)  
 **Duration**: Exactly 5 Minutes (300 Seconds)  
@@ -35,7 +34,7 @@
 - **Slide Header**: STET301 · Human Computer Interaction · End-Term Examination
 - **Slide Title**: VUFIX — Designing Frictionless Hostel Maintenance & Management
 - **Key Visual Elements**:
-  - Presenter badge: Aryaman Saboo (2024VUGP0039), B.Tech CSE, Vijaybhoomi University.
+  - Presenter badge: Parth Pawar (2024VUGP0021), B.Tech CSE, Vijaybhoomi University.
   - Evaluation rubric mapping: Usability Testing (25%), Peer Benchmarking (25%), 5-Min Presentation (25%), Behance Case Study (25%).
   - Core tech stack icons: Vanilla HTML5/JS ES6+, LocalStorage Reactive Store, CSS Design Tokens.
 - **Verbatim Speaker Script (30 seconds)**:
@@ -58,7 +57,7 @@
 - **Slide Header**: Information Architecture
 - **Slide Title**: Dual-Role Synchronized Information Architecture
 - **Key Visual Elements**:
-  - Split comparison layout: Student Portal (Aryaman Saboo) vs Hostel Warden Portal (Warden Rinu Babu).
+  - Split comparison layout: Student Portal (Parth Pawar) vs Hostel Warden Portal (Warden Rinu Babu).
   - Data sync diagram showing optimistic updates and instant timeline reflection.
 - **Verbatim Speaker Script (30 seconds)**:
   > *"To solve this, we decoupled the Information Architecture into two synchronized user journeys. For students, our interface is mobile-first and task-oriented, pre-binding their hostel block and room number so filing takes seconds. For Warden Rinu Babu, our admin portal acts as a high-density command center—featuring 5 real-time KPI stat cards, an urgent escalation alert banner, and a specialist staff roster with instant status dispatch. Both portals synchronize reactively through a shared state layer."*
@@ -81,7 +80,7 @@
 - **Slide Header**: Empirical Evaluation
 - **Slide Title**: Usability Testing: 5 Real Campus Users
 - **Key Visual Elements**:
-  - Participant matrix: Aryaman (CS), Ananya (Design), Kabir (Freshman), Priya (Liberal Arts), Mr. Dilip Rao (Warden Office Assistant).
+  - Participant matrix: Aryan S. (CS), Ananya (Design), Kabir (Freshman), Priya (Liberal Arts), Mr. Dilip Rao (Warden Office Assistant).
   - Methodology tags: Think-Aloud Protocol, 4 Benchmark Tasks, Screen recordings, SEQ and SUS surveys.
 - **Verbatim Speaker Script (30 seconds)**:
   > *"To evaluate the design under real-world conditions, we tested the prototype with five real campus users representing diverse cohorts—from tech-savvy engineering students and visual design majors to freshman residents and the warden office assistant, Mr. Dilip Rao. Each participant performed four benchmark tasks under a concurrent think-aloud protocol: reporting an emergency leak, escalating an overdue ticket, assigning staff, and confirming resolution."*

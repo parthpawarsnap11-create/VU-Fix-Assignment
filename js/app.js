@@ -78,14 +78,14 @@ function renderLogin() {
                     <form onsubmit="handleLoginSubmit(event, 'student')">
                         <div class="form-group">
                             <label class="form-label">Email or Registration No.</label>
-                            <input type="email" id="student-email" class="form-control" value="aryaman.saboo@vijaybhoomi.edu.in" placeholder="Enter student email" required>
+                            <input type="email" id="student-email" class="form-control" value="parth.pawar@vijaybhoomi.edu.in" placeholder="Enter student email" required>
                         </div>
                         <div class="form-group">
                             <label class="form-label">Password</label>
                             <input type="password" class="form-control" value="••••••••" placeholder="Enter password" required>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block mt-4" style="padding: 0.75rem;">
-                            <i class="fa-solid fa-right-to-bracket"></i> Login as Student (Aryaman Saboo)
+                            <i class="fa-solid fa-right-to-bracket"></i> Login as Student (Parth Pawar)
                         </button>
                     </form>
                 </div>
@@ -95,13 +95,13 @@ function renderLogin() {
                     <form onsubmit="handleStudentRegister(event)">
                         <div class="form-group">
                             <label class="form-label">Full Name</label>
-                            <input type="text" id="reg-name" class="form-control" placeholder="E.g., Aryaman Saboo" required>
+                            <input type="text" id="reg-name" class="form-control" placeholder="E.g., Parth Pawar" required>
                         </div>
                         <div class="form-group">
                             <label class="form-label">Hostel & Room No.</label>
                             <div class="grid grid-cols-2 gap-2">
                                 <input type="text" id="reg-hostel" class="form-control" value="Hostel A" placeholder="Hostel" required>
-                                <input type="text" id="reg-room" class="form-control" placeholder="Room (e.g. B3-304)" required>
+                                <input type="text" id="reg-room" class="form-control" placeholder="Room (e.g. A1-101)" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -137,16 +137,12 @@ function renderLogin() {
                         <i class="fa-solid fa-bolt text-warning"></i> Quick Demo Access Presets
                     </div>
                     <button type="button" class="quick-fill-btn" onclick="quickLogin('student')">
-                        <span>⚡ <strong>Student Login</strong> (Aryaman Saboo)</span>
-                        <span class="text-xs text-muted">2024VUGP0039</span>
+                        <span>⚡ <strong>Student Login</strong> (Parth Pawar)</span>
+                        <span class="text-xs text-muted">2024VUGP0021</span>
                     </button>
                     <button type="button" class="quick-fill-btn" onclick="quickLogin('admin')">
                         <span>🛡️ <strong>Hostel Warden Login</strong> (Rinu Babu)</span>
                         <span class="text-xs text-muted">Hostel Admin</span>
-                    </button>
-                    <button type="button" class="quick-fill-btn" onclick="quickLogin('student2')">
-                        <span>👤 <strong>Student Login</strong> (Parth Pawar)</span>
-                        <span class="text-xs text-muted">2024VUGP0021</span>
                     </button>
                 </div>
             </div>
@@ -170,7 +166,7 @@ window.handleLoginSubmit = function(e, role) {
     e.preventDefault();
     Store.login(role);
     renderApp();
-    showToast(`Welcome back! Logged in as ${role === 'admin' ? 'Hostel Warden Rinu Babu' : 'Student Aryaman Saboo'}`);
+    showToast(`Welcome back! Logged in as ${role === 'admin' ? 'Hostel Warden Rinu Babu' : 'Student Parth Pawar'}`);
 };
 
 window.handleStudentRegister = function(e) {
@@ -684,7 +680,7 @@ function renderComplaintDetail(container, id) {
                     <div class="grid grid-cols-2 gap-4 mb-4">
                         <div><div class="text-xs text-muted">Category</div><div class="font-semibold">${complaint.category} (${complaint.subcategory || 'General'})</div></div>
                         <div><div class="text-xs text-muted">Hostel Location</div><div class="font-semibold">${complaint.location.block} · Room ${complaint.location.room} (${complaint.location.hostel})</div></div>
-                        <div><div class="text-xs text-muted">Student Name</div><div class="font-semibold">${complaint.studentName || 'Aryaman Saboo'}</div></div>
+                        <div><div class="text-xs text-muted">Student Name</div><div class="font-semibold">${complaint.studentName || 'Parth Pawar'}</div></div>
                         <div><div class="text-xs text-muted">Created At</div><div class="font-semibold">${formatDate(complaint.createdAt)}</div></div>
                     </div>
                     <div class="text-xs text-muted mb-1">Description</div>
@@ -905,7 +901,7 @@ function renderAdminDashboard(container, forceFilter = null) {
                             <tr style="${c.status === 'Escalated' ? 'background: #fff5f5;' : ''}">
                                 <td class="font-bold text-primary">#${c.id}</td>
                                 <td>
-                                    <div class="font-semibold text-main">${c.studentName || 'Aryaman Saboo'}</div>
+                                    <div class="font-semibold text-main">${c.studentName || 'Parth Pawar'}</div>
                                     <div class="text-xs text-muted">${c.location.block} · Room ${c.location.room}</div>
                                 </td>
                                 <td>

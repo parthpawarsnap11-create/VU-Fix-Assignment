@@ -3,16 +3,6 @@
 const defaultData = {
     users: {
         student: { 
-            id: '2024VUGP0039', 
-            name: 'Aryaman Saboo', 
-            role: 'student', 
-            hostel: 'Hostel A', 
-            block: 'B3', 
-            room: 'B3-304', 
-            email: 'aryaman.saboo@vijaybhoomi.edu.in', 
-            avatar: 'AS' 
-        },
-        student2: { 
             id: '2024VUGP0021', 
             name: 'Parth Pawar', 
             role: 'student', 
@@ -21,6 +11,16 @@ const defaultData = {
             room: 'A1-101', 
             email: 'parth.pawar@vijaybhoomi.edu.in', 
             avatar: 'PP' 
+        },
+        student2: { 
+            id: '2024VUGP0055', 
+            name: 'Ananya Sharma', 
+            role: 'student', 
+            hostel: 'Hostel B', 
+            block: 'B2', 
+            room: 'B2-205', 
+            email: 'ananya.sharma@vijaybhoomi.edu.in', 
+            avatar: 'AS' 
         },
         staff: { 
             id: 'T2001', 
@@ -56,12 +56,12 @@ const defaultData = {
             escalatedReason: 'Delay of over 48 hours without technician visit.',
             expectedResolution: '2026-09-22',
             assignedTo: 'Sunita Devi',
-            studentId: '2024VUGP0039',
-            studentName: 'Aryaman Saboo',
+            studentId: '2024VUGP0021',
+            studentName: 'Parth Pawar',
             createdAt: '2026-09-18T09:30:00',
             updatedAt: '2026-09-20T14:10:00',
             timeline: [
-                { status: 'Submitted', desc: 'Complaint submitted by Aryaman Saboo', time: '2026-09-18T09:30:00' },
+                { status: 'Submitted', desc: 'Complaint submitted by Parth Pawar', time: '2026-09-18T09:30:00' },
                 { status: 'Under Review', desc: 'Reviewed by Warden Rinu Babu', time: '2026-09-18T11:00:00' },
                 { status: 'Escalated', desc: 'Escalated by Student: Delay of over 48 hours without technician visit.', time: '2026-09-20T14:10:00' }
             ]
@@ -77,12 +77,12 @@ const defaultData = {
             status: 'In Progress',
             expectedResolution: '2026-09-21',
             assignedTo: 'Suresh Sharma',
-            studentId: '2024VUGP0039',
-            studentName: 'Aryaman Saboo',
+            studentId: '2024VUGP0021',
+            studentName: 'Parth Pawar',
             createdAt: '2026-09-19T10:30:00',
             updatedAt: '2026-09-20T13:15:00',
             timeline: [
-                { status: 'Submitted', desc: 'Complaint submitted by Aryaman Saboo', time: '2026-09-19T10:30:00' },
+                { status: 'Submitted', desc: 'Complaint submitted by Parth Pawar', time: '2026-09-19T10:30:00' },
                 { status: 'Under Review', desc: 'Complaint reviewed by Warden Rinu Babu', time: '2026-09-19T11:05:00' },
                 { status: 'Assigned', desc: 'Assigned to Suresh Sharma (Plumbing Specialist)', time: '2026-09-19T11:20:00' },
                 { status: 'In Progress', desc: 'Technician Suresh Sharma replacement washer procurement in progress', time: '2026-09-20T13:15:00' }
@@ -99,12 +99,12 @@ const defaultData = {
             status: 'Assigned',
             expectedResolution: '2026-09-22',
             assignedTo: 'Ramesh Kumar',
-            studentId: '2024VUGP0039',
-            studentName: 'Aryaman Saboo',
+            studentId: '2024VUGP0021',
+            studentName: 'Parth Pawar',
             createdAt: '2026-09-20T08:00:00',
             updatedAt: '2026-09-20T09:00:00',
             timeline: [
-                { status: 'Submitted', desc: 'Complaint submitted by Aryaman Saboo', time: '2026-09-20T08:00:00' },
+                { status: 'Submitted', desc: 'Complaint submitted by Parth Pawar', time: '2026-09-20T08:00:00' },
                 { status: 'Assigned', desc: 'Assigned to Ramesh Kumar by Warden Rinu Babu', time: '2026-09-20T09:00:00' }
             ]
         },
@@ -119,12 +119,12 @@ const defaultData = {
             status: 'Resolved',
             expectedResolution: '2026-09-17',
             assignedTo: 'Vikas Patil',
-            studentId: '2024VUGP0039',
-            studentName: 'Aryaman Saboo',
+            studentId: '2024VUGP0021',
+            studentName: 'Parth Pawar',
             createdAt: '2026-09-15T10:00:00',
             updatedAt: '2026-09-17T14:00:00',
             timeline: [
-                { status: 'Submitted', desc: 'Complaint submitted by Aryaman Saboo', time: '2026-09-15T10:00:00' },
+                { status: 'Submitted', desc: 'Complaint submitted by Parth Pawar', time: '2026-09-15T10:00:00' },
                 { status: 'Assigned', desc: 'Assigned to Vikas Patil', time: '2026-09-15T11:00:00' },
                 { status: 'Resolved', desc: 'Router access point restarted and firmware updated.', time: '2026-09-17T14:00:00' }
             ]
@@ -162,8 +162,8 @@ function initStore() {
     } else {
         try {
             const parsed = JSON.parse(existing);
-            // Upgrade mock schema if missing technicians, student is not Aryaman Saboo, or ID is outdated
-            if (!parsed.technicians || !parsed.users.student || parsed.users.student.name !== 'Aryaman Saboo' || parsed.users.student.id !== '2024VUGP0039') {
+            // Upgrade mock schema if missing technicians, student is not Parth Pawar, or ID is outdated
+            if (!parsed.technicians || !parsed.users.student || parsed.users.student.name !== 'Parth Pawar' || parsed.users.student.id !== '2024VUGP0021') {
                 localStorage.setItem('hostel_data', JSON.stringify(defaultData));
             }
         } catch (e) {

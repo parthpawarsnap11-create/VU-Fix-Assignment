@@ -5,8 +5,8 @@
 
 ### Slide 1: Title
 **VUFIX: Redefining Hostel Maintenance Management**
-*Presenters: Aryaman Saboo*
-*Role: UX/UI Designer & Frontend Developer*
+*Presenter: Parth Pawar (2024VUGP0021)*
+*Role: Lead UX/UI Designer & Systems Architect*
 *Course: Human Computer Interaction (STET301)*
 
 ---

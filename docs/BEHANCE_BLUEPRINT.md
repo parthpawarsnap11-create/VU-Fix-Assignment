@@ -1,6 +1,6 @@
 # BEHANCE MARKDOWN BLUEPRINT
 **Case Study Title**: VUFIX — Designing Frictionless Hostel Maintenance & Facilities Management  
-**Authors**: Aryaman Saboo (2024VUGP0039) & Parth Pawar (2024VUGP0021)  
+**Author**: Parth Pawar (Roll No: 2024VUGP0021)  
 **Institution**: Vijaybhoomi University, School of Science & Technology  
 **Course**: STET301 — Human Computer Interaction (End-Term Examination)  
 **Format Target**: Behance Case Study Long-Form Publishing Narrative  
@@ -51,8 +51,8 @@ Technicians marked clipboards as "Fixed" without student verification. Students 
 ## 02 / EMPATHY MODELING & USER PERSONAS
 We designed VUFIX around two intersecting mental models:
 
-### Persona 1: The Stressed Student (Aryaman Saboo)
-- **Profile**: 3rd Year B.Tech CSE, resident of Hostel A, Block B3, Room B3-304.
+### Persona 1: The Stressed Student (Parth Pawar)
+- **Profile**: 3rd Year B.Tech CSE, resident of Hostel A, Block A1, Room A1-101.
 - **Mental Model**: High tech literacy, short attention span during exam periods, values speed, transparency, and certainty.
 - **Key Pain Point**: Anxious about unauthorized room entries; frustrated by 3-day delays without explanations.
 - **Core Need**: File a ticket in under 60 seconds, view live technician progress, and escalate directly to Warden Rinu Babu if delayed.
@@ -81,7 +81,7 @@ Every interaction in VUFIX was designed to satisfy Jakob Nielsen’s 10 Usabilit
 
 ## 04 / USABILITY TESTING & HEURISTIC BREAKDOWN (25% RUBRIC)
 We tested the interactive prototype using the Think-Aloud Protocol with **5 real campus stakeholders**:
-1. *Aryaman Saboo* (3rd Yr CS Hostelite)
+1. *Aryan S.* (3rd Yr CS Hostelite)
 2. *Ananya Sharma* (2nd Yr Design Hostelite)
 3. *Kabir Mehta* (1st Yr Freshman Hostelite)
 4. *Priya Iyer* (4th Yr BBA Hostelite)

@@ -2,8 +2,8 @@
 **Course Name**: Human Computer Interaction (STET301)  
 **School**: Vijaybhoomi School of Science & Technology, Vijaybhoomi University  
 **Examination Session**: September 2026  
-**Candidate Name**: Aryaman Saboo (Roll No: 2024VUGP0039)  
-**Collaborator**: Parth Pawar (Roll No: 2024VUGP0021)  
+**Candidate Name**: Parth Pawar (Roll No: 2024VUGP0021)  
+**School**: Vijaybhoomi School of Science & Technology, Vijaybhoomi University  
 **Maximum Marks**: 40 Marks (Course Outcomes: CO1, CO2, CO3, CO4, CO5)  
 **Project Name**: **VUFIX — Hostel Maintenance & Management Portal**  
 
@@ -30,7 +30,7 @@
   > *"Using your interactive prototypes, conduct usability testing with at least five real users. Document common failures. Note exactly which heuristics broke, where the friction points were, and how your system architecture held up under unpredictable human behavior."*
 - **Execution & Findings**:
   - **5 Real Users Tested**:
-    1. *Aryaman Saboo* (3rd Yr CSE hostelite, Room B3-304)
+    1. *Aryan S.* (3rd Yr CSE hostelite, Room B3-304)
     2. *Ananya Sharma* (2nd Yr Design hostelite, Room C2-105)
     3. *Kabir Mehta* (1st Yr Data Science freshman, Room A1-204)
     4. *Priya Iyer* (4th Yr BBA Liberal Arts hostelite, Room D1-402)

@@ -4,34 +4,25 @@ This document contains all active local server URLs, ports, local file paths, an
 
 ---
 
-## 🌐 Active Localhost URLs
+## 🌐 Active Localhost URLs (Live on Port 8000)
 
 | Environment | Description | URL |
 | :--- | :--- | :--- |
-| **Main Web Portal** | Full multi-file application | [http://localhost:8080/index.html](http://localhost:8080/index.html) |
-| **Single-Page Version** | Standalone single-file HTML bundle | [http://localhost:8080/single_page_app.html](http://localhost:8080/single_page_app.html) |
-| **Local Web Server** | Python HTTP Server (Port 8080) | `python3 -m http.server 8080` |
-
----
-
-## 📁 Local File System Paths
-
-- **Project Root Directory**: [`file:///Users/aryamansaboo/Downloads/Hostel_Maintenance_App`](file:///Users/aryamansaboo/Downloads/Hostel_Maintenance_App)
-- **Bundle Directory**: [`file:///Users/aryamansaboo/Downloads/VUFIX_Complete_Project_Bundle`](file:///Users/aryamansaboo/Downloads/VUFIX_Complete_Project_Bundle)
-- **Main HTML File**: [`file:///Users/aryamansaboo/Downloads/Hostel_Maintenance_App/index.html`](file:///Users/aryamansaboo/Downloads/Hostel_Maintenance_App/index.html)
-- **Standalone HTML File**: [`file:///Users/aryamansaboo/Downloads/Hostel_Maintenance_App/single_page_app.html`](file:///Users/aryamansaboo/Downloads/Hostel_Maintenance_App/single_page_app.html)
-- **Downloadable Zip Archive**: [`file:///Users/aryamansaboo/Downloads/VUFIX_Hostel_Maintenance_App.zip`](file:///Users/aryamansaboo/Downloads/VUFIX_Hostel_Maintenance_App.zip)
+| **Main Web Portal** | Full multi-file application with persistent mock store | [http://localhost:8000/index.html](http://localhost:8000/index.html) |
+| **Single-Page Version** | Standalone zero-dependency HTML app | [http://localhost:8000/single_page_app.html](http://localhost:8000/single_page_app.html) |
+| **5-Min Presentation Deck** | Interactive slide deck with touch swipe & wheel | [http://localhost:8000/presentation/presentation_deck.html](http://localhost:8000/presentation/presentation_deck.html) |
+| **Behance 1400px Showcase** | High-fidelity 1400px wide UX showcase board | [http://localhost:8000/showcase/behance_showcase_1400px.html](http://localhost:8000/showcase/behance_showcase_1400px.html) |
 
 ---
 
 ## 👤 Pre-Configured Demo Credentials
 
 ### 1. Primary Student Account
-- **Name**: Aryaman Saboo
-- **Roll No**: `2024VUGP0039`
-- **Email**: `aryaman.saboo@vijaybhoomi.edu.in`
-- **Hostel & Room**: Hostel A, Block B3, Room B3-304
-- **Avatar**: `AS`
+- **Name**: Parth Pawar
+- **Roll No**: `2024VUGP0021`
+- **Email**: `parth.pawar@vijaybhoomi.edu.in`
+- **Hostel & Room**: Hostel A, Block A1, Room A1-101
+- **Avatar**: `PP`
 
 ### 2. Hostel Warden / Admin Account
 - **Name**: Rinu Babu
@@ -41,8 +32,8 @@ This document contains all active local server URLs, ports, local file paths, an
 - **Avatar**: `RB`
 
 ### 3. Secondary Student Account
-- **Name**: Parth Pawar
-- **Roll No**: `2024VUGP0021`
-- **Email**: `parth.pawar@vijaybhoomi.edu.in`
-- **Hostel & Room**: Hostel A, Block A1, Room A1-101
-- **Avatar**: `PP`
+- **Name**: Ananya Sharma
+- **Roll No**: `2024VUGP0055`
+- **Email**: `ananya.sharma@vijaybhoomi.edu.in`
+- **Hostel & Room**: Hostel B, Room B2-204
+- **Avatar**: `AS`

@@ -16,13 +16,13 @@ Build a complete, responsive Single-Page Web Application (SPA) named "VUFIX" —
 
 ### Key Users & Default Profiles
 1. Primary Student Profile:
-   - Name: Aryaman Saboo
-   - Roll No: 2024VUGP0039
-   - Email: aryaman.saboo@vijaybhoomi.edu.in
-   - Hostel & Room: Hostel A, Block B3, Room B3-304
-   - Avatar: AS
+   - Name: Parth Pawar
+   - Roll No: 2024VUGP0021
+   - Email: parth.pawar@vijaybhoomi.edu.in
+   - Hostel & Room: Hostel A, Block A1, Room A1-101
+   - Avatar: PP
 2. Secondary Student Preset:
-   - Name: Parth Pawar (2024VUGP0021, parth.pawar@vijaybhoomi.edu.in, Room A1-101)
+   - Name: Ananya Sharma (2024VUGP0055, ananya.sharma@vijaybhoomi.edu.in, Room B2-204)
 3. Hostel Warden / Admin Profile:
    - Name: Rinu Babu
    - Title: Hostel Warden
@@ -35,13 +35,13 @@ Build a complete, responsive Single-Page Web Application (SPA) named "VUFIX" —
 1. Fretbox-Inspired Tabbed Login Screen:
    - 3 interactive tabs: "Student Login", "Student Sign Up", and "Warden / Admin Login".
    - Quick Fill Demo Preset Buttons:
-     - ⚡ Quick Fill Student (Aryaman Saboo)
+     - ⚡ Quick Fill Student (Parth Pawar)
      - 🛡️ Quick Fill Hostel Warden (Rinu Babu)
-     - 👤 Quick Fill Student (Parth Pawar)
+     - 👤 Quick Fill Student (Ananya Sharma)
    - Mock sign-up form allowing new student registration.
 
 2. Student Maintenance Portal:
-   - Header greeting: "Welcome back, Aryaman Saboo 👋" with roll, room, and email badges.
+   - Header greeting: "Welcome back, Parth Pawar 👋" with roll, room, and email badges.
    - Summary stat cards: Active Requests, Resolved Issues, Escalated Tickets.
    - Guided 3-step complaint submission wizard (Select Category -> Enter Details -> Review & Submit).
    - "My Complaints" list with filter and status pills.
@@ -79,7 +79,7 @@ Design and build a Mobile-First Progressive Web Application (PWA) called "VUFIX 
 
 1. Authentication & Onboarding (Mobile Cards):
    - Segmented tab control for [Student Login], [Sign Up], and [Warden Login].
-   - Quick-fill 1-tap preset chips for instant login as Aryaman Saboo (Student) or Rinu Babu (Warden).
+   - Quick-fill 1-tap preset chips for instant login as Parth Pawar (Student) or Rinu Babu (Warden).
 
 2. Student Mobile Experience:
    - Floating Action Button (FAB) or bottom nav '+' button to trigger instant 3-step complaint wizard.

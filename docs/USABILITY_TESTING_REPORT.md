@@ -2,7 +2,7 @@
 **Course**: STET301 — Human Computer Interaction  
 **Institution**: Vijaybhoomi School of Science & Technology, Vijaybhoomi University  
 **Project**: VUFIX — Hostel Maintenance & Management Portal  
-**Authors**: Aryaman Saboo (2024VUGP0039) & Parth Pawar (2024VUGP0021)  
+**Author**: Parth Pawar (Roll No: 2024VUGP0021)  
 **Evaluation Criteria**: Usability Testing & Analysis (25% Weightage / 10 Marks)  
 **Date**: September 2026  
 
@@ -34,7 +34,7 @@ Testing was conducted with 5 diverse participants representing actual university
 
 | User ID | Participant Name | Role / Department | Year / Hostel | Tech Proficiency | Prior Maintenance Experience |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **U1** | **Aryaman Saboo** | B.Tech Computer Science | 3rd Year (Hostel A, B3-304) | High | Frequently files WiFi & plumbing issues |
+| **U1** | **Aryan S.** | B.Tech Computer Science | 3rd Year (Hostel A, B3-304) | High | Frequently files WiFi & plumbing issues |
 | **U2** | **Ananya Sharma** | B.Des Communication Design | 2nd Year (Hostel B, C2-105) | Moderate | Uses WhatsApp / paper registers |
 | **U3** | **Kabir Mehta** | B.Sc Data Science | 1st Year (Hostel A, A1-204) | High | New hostelite, unfamiliar with staff names |
 | **U4** | **Priya Iyer** | BBA Liberal Arts | 4th Year (Hostel B, D1-402) | Moderate | Frustrated with slow physical escalation |
@@ -131,7 +131,7 @@ Percentile Rank: 41st Percentile               Percentile Rank: 97th Percentile
 ```
 
 ### Breakdown of Individual Participant SUS Scores:
-- **Aryaman Saboo (U1)**: Initial: 67.5 ➔ Iteration: 92.5
+- **Aryan S. (U1)**: Initial: 67.5 ➔ Iteration: 92.5
 - **Ananya Sharma (U2)**: Initial: 57.5 ➔ Iteration: 87.5
 - **Kabir Mehta (U3)**: Initial: 65.0 ➔ Iteration: 85.0
 - **Priya Iyer (U4)**: Initial: 62.5 ➔ Iteration: 87.5
