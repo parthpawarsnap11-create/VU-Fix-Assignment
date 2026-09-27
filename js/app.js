@@ -1075,6 +1075,8 @@ window.saveAdminTicketChanges = function(e, id) {
     } else {
         renderComplaintDetail(document.getElementById('page-content'), id);
     }
+};
+
 // ---------------- PROFESSOR'S DELIVERABLES CHECKLIST MODAL ----------------
 window.openProfessorChecklistModal = function() {
     const modalContainer = document.getElementById('modal-container') || document.body;
