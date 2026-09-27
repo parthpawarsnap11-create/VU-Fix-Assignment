@@ -399,15 +399,39 @@
 
         /* Printable Mode */
         @media print {
-            body { overflow: visible; background: white; color: black; }
-            .deck-topbar, .deck-bottombar, .notes-drawer { display: none !important; }
-            .stage-container { padding: 0; }
-            .slide-viewport { border: none; box-shadow: none; aspect-ratio: auto; }
-            .slide { display: flex !important; page-break-after: always; height: 100vh; padding: 2rem; background: white; color: black; }
-            .slide-title { -webkit-text-fill-color: black; }
-            .feature-box { border: 1px solid #ddd; background: #fafafa; }
-            .box-title { color: #111; }
-            .box-desc { color: #555; }
+            @page {
+                size: 16in 9in;
+                margin: 0;
+            }
+            body { 
+                overflow: visible !important; 
+                background: #090d16 !important; 
+                color: #f8fafc !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .deck-topbar, .deck-bottombar, .notes-drawer, .progress-bar-container { display: none !important; }
+            .stage-container { padding: 0 !important; display: block !important; background: #090d16 !important; }
+            .slide-viewport { border: none !important; box-shadow: none !important; aspect-ratio: auto !important; max-width: 100% !important; background: transparent !important; }
+            .slide { 
+                display: flex !important; 
+                page-break-after: always !important; 
+                break-after: page !important; 
+                height: 100vh !important; 
+                min-height: 100vh !important;
+                padding: 3.5rem 4.5rem !important; 
+                background: #090d16 !important; 
+                color: #f8fafc !important; 
+                box-sizing: border-box !important;
+            }
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+            .slide-title { -webkit-text-fill-color: initial !important; color: #ffffff !important; opacity: 1 !important; }
+            .feature-box { border: 1px solid rgba(255, 255, 255, 0.15) !important; background: rgba(22, 28, 45, 0.85) !important; opacity: 1 !important; }
+            .box-title { color: #ffffff !important; }
+            .box-desc { color: #94a3b8 !important; }
         }
     </style>
 </head>
