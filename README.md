@@ -8,8 +8,9 @@
 
 | Deliverable | Description | Direct Link |
 | :--- | :--- | :--- |
+| 🌐 **Live Behance Case Study URL** | Published project on Behance profile (Examination Submission). | [View on Behance (Live URL)](https://www.behance.net/gallery/256325853/UIUX-Project) |
 | 📱 **Live Production Web App** | Fully interactive hostel maintenance portal with 3-step wizard, status tracking, filters, and role switcher. | [Launch VUFIX App](index.html) |
-| 📊 **5-Minute Presentation Deck** | 7-slide 16:9 presentation deck pre-formatted with pitch cues, timer, and 1-click PDF export. | [Open Presentation Deck](presentation/presentation_deck.html) |
+| 📊 **5-Minute Presentation Deck** | 7-slide 16:9 presentation deck pre-formatted with pitch cues, timer, and 1-click PDF export. | [Open Presentation Deck](presentation/presentation_deck.html) \| [Download PDF](presentation/VUFIX_5Min_Presentation_Deck.pdf) |
 | 🎨 **Behance 1400px Showcase Board** | Full visual presentation board formatted to Behance dimensions with embedded screenshots, metrics, and quotes. | [Open Behance Showcase](showcase/behance_showcase_1400px.html) |
 | 📝 **Behance Markdown Blueprint** | Exhaustive case study narrative formatted for Behance project publication. | [Read Behance Blueprint](docs/BEHANCE_BLUEPRINT.md) |
 | 📋 **Behance Metadata & Tags** | Copy-paste project title, summary, creative fields, tags, and publishing steps. | [Read Behance Metadata](docs/BEHANCE_METADATA.md) |
@@ -17,6 +18,13 @@
 | 👥 **Peer Benchmarking Report (25%)** | Comparative analysis against 3 classmates (Kunal/Ganesh, Prasad, Neermay). | [Read Peer Benchmarking](docs/PEER_BENCHMARKING_REPORT.md) |
 | 📑 **Mid-Term Research Case Study** | Original academic paper covering Personas, Empathy Map, Card Sort, and IA Trees V1/V2. | [Read Research Paper](docs/MIDTERM_RESEARCH_CASE_STUDY.md) |
 | 📐 **Figma Design Source** | Original UI wireframes and interactive flows. | [View Design Source Specs](docs/MIDTERM_RESEARCH_CASE_STUDY.md#5-information-architecture-evolution-from-v1-to-v2) |
+
+---
+
+### 🎓 Official Examination Submission Checklist
+
+- **Behance Case Study URL**: `https://www.behance.net/gallery/256325853/UIUX-Project`
+- **Slide Deck prepared for the 5-minute presentation**: [`presentation/VUFIX_5Min_Presentation_Deck.pdf`](presentation/VUFIX_5Min_Presentation_Deck.pdf) (Interactive: [`presentation/presentation_deck.html`](presentation/presentation_deck.html))
 
 ---
 

@@ -1131,6 +1131,13 @@ window.openProfessorChecklistModal = function() {
                                         <a href="presentation/presentation_deck.html" target="_blank" class="btn btn-secondary btn-sm" style="font-size: 0.75rem; text-decoration: none; border-color: #6366f1; color: #4f46e5;">Open Presentation Deck</a>
                                     </td>
                                 </tr>
+                                <tr style="border-bottom: 1px solid #e2e8f0; background: #eff6ff;">
+                                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #1d4ed8;">🌐 Live Behance Case Study (URL)</td>
+                                    <td style="padding: 0.75rem 1rem; color: #1e40af;">Official published project URL for STET301 Examination Submission.</td>
+                                    <td style="padding: 0.75rem 1rem; text-align: right;">
+                                        <a href="https://www.behance.net/gallery/256325853/UIUX-Project" target="_blank" class="btn btn-primary btn-sm" style="font-size: 0.75rem; text-decoration: none; background: #0057ff;">View on Behance ↗</a>
+                                    </td>
+                                </tr>
                                 <tr style="border-bottom: 1px solid #e2e8f0;">
                                     <td style="padding: 0.75rem 1rem; font-weight: 700; color: #0057ff;">🎨 Behance 1400px Showcase Board</td>
                                     <td style="padding: 0.75rem 1rem; color: #64748b;">Full visual presentation board formatted to Behance dimensions with embedded screenshots, metrics, and quotes.</td>

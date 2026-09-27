@@ -62,5 +62,6 @@ UXDesign, UIUX, HumanComputerInteraction, CaseStudy, UsabilityTesting, Heuristic
    - Add Co-Owner / Collaborator: `Parth Pawar`.
 6. **Publish Project**:  
    Click **"Publish"** to generate your live public Behance project URL!
-7. **Copy Live URL**:  
-   Copy the public Behance URL (e.g. `https://www.behance.net/gallery/...`) and provide it in your end-term submission form alongside your slide deck.
+7. **Live Published Behance URL**:  
+   `https://www.behance.net/gallery/256325853/UIUX-Project`  
+   *(Copy this URL and provide it in your end-term submission form alongside your slide deck!)*
