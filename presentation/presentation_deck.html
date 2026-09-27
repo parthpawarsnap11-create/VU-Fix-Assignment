@@ -38,14 +38,14 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            overflow: hidden;
+            overflow-x: hidden;
             user-select: none;
         }
 
         /* Top Header Control Bar */
         .deck-topbar {
-            height: 60px;
-            background: rgba(15, 23, 42, 0.9);
+            height: 54px;
+            background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(14px);
             border-bottom: 1px solid var(--border-glass);
             display: flex;
@@ -53,6 +53,7 @@
             justify-content: space-between;
             padding: 0 1.5rem;
             z-index: 100;
+            flex-shrink: 0;
         }
 
         .deck-logo {
@@ -60,31 +61,11 @@
             align-items: center;
             gap: 0.75rem;
             font-weight: 800;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             letter-spacing: -0.02em;
             background: linear-gradient(135deg, #a5b4fc, #38bdf8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-        }
-
-        .deck-info {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .timer-badge {
-            background: rgba(99, 102, 241, 0.15);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            color: #818cf8;
-            padding: 0.35rem 0.85rem;
-            border-radius: 9999px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.875rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         .btn-deck {
@@ -123,15 +104,50 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1.5rem;
+            padding: 1rem 3.5rem;
             position: relative;
             background: radial-gradient(circle at 50% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 60%),
                         radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
+            overflow: auto;
         }
+
+        /* Floating Nav Arrows */
+        .stage-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid var(--border-glass);
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 60;
+            font-size: 1.15rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+            transition: all 0.2s ease;
+        }
+
+        .stage-arrow:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-50%) scale(1.1);
+            color: #ffffff;
+        }
+
+        .stage-arrow.left { left: 1rem; }
+        .stage-arrow.right { right: 1rem; }
 
         .slide-viewport {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1160px;
+            height: calc(100vh - 132px);
+            max-height: 700px;
+            min-height: 460px;
             aspect-ratio: 16 / 9;
             background: var(--bg-card);
             backdrop-filter: blur(20px);
@@ -148,10 +164,11 @@
             display: none;
             width: 100%;
             height: 100%;
-            padding: 2.75rem 3.5rem;
+            padding: 2rem 3rem;
             flex-direction: column;
             justify-content: space-between;
-            animation: fadeIn 0.3s ease-out forwards;
+            overflow-y: auto;
+            animation: fadeIn 0.25s ease-out forwards;
         }
 
         .slide.active {
@@ -441,32 +458,20 @@
     <header class="deck-topbar">
         <div class="deck-logo">
             <i class="fa-solid fa-layer-group"></i>
-            <span>VUFIX — 7-Slide 5-Min Presentation Deck</span>
-            <span style="font-size: 0.75rem; color: #94a3b8; font-weight: 500;">| STET301 End-Term HCI</span>
+            <span>VUFIX — 7-Slide Presentation Deck</span>
         </div>
-
-        <div class="deck-info">
-            <div class="timer-badge" id="deck-timer">
-                <i class="fa-regular fa-clock"></i>
-                <span id="timer-display">05:00</span>
-            </div>
-            <button class="btn-deck" onclick="toggleTimer()" id="timer-btn">
-                <i class="fa-solid fa-play"></i> Start Pitch Timer
-            </button>
-            <button class="btn-deck" onclick="toggleNotes()">
-                <i class="fa-solid fa-comment-dots"></i> Speaker Notes & Cues
-            </button>
-            <a href="../index.html" class="btn-deck">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i> Live App
-            </a>
-            <a href="../showcase/behance_showcase_1400px.html" class="btn-deck primary">
-                <i class="fa-brands fa-behance"></i> Behance Board
-            </a>
+        <div class="keyboard-hint" style="font-size: 0.8rem; color: #94a3b8;">
+            <span>Use Swipe, Mouse Scroll, or Arrows</span>
         </div>
     </header>
 
     <!-- Main Presentation Stage -->
     <main class="stage-container">
+        <!-- Floating Stage Nav Arrows -->
+        <button class="stage-arrow left" onclick="prevSlide()" title="Previous Slide (← / ↑ / Scroll Up / Swipe Down)" id="arrow-prev">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
         <div class="slide-viewport">
             
             <!-- SLIDE 1: Title & Project Identity -->
@@ -737,23 +742,23 @@
         </div>
     </main>
 
-    <!-- Speaker Notes Drawer -->
-    <div class="notes-drawer" id="notes-drawer">
-        <div class="notes-header">
-            <span><i class="fa-solid fa-microphone"></i> Pitch Cues & Script</span>
-            <span id="notes-slide-num">Slide 1 of 7</span>
         </div>
-        <div id="notes-content">
-            "Good morning respected Professor and examiners. Today I am presenting VUFIX, an interactive hostel maintenance portal designed for Vijaybhoomi University..."
-        </div>
-    </div>
+
+        <!-- Floating Next Arrow -->
+        <button class="stage-arrow right" onclick="nextSlide()" title="Next Slide (→ / ↓ / Scroll Down / Swipe Up)" id="arrow-next">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </main>
 
     <!-- Bottom Controls Bar -->
     <footer class="deck-bottombar">
         <div class="keyboard-hint">
-            <span>Navigate:</span>
+            <span>Controls:</span>
             <span class="key-badge">←</span>
             <span class="key-badge">→</span>
+            <span class="key-badge">↑</span>
+            <span class="key-badge">↓</span>
+            <span class="key-badge">Scroll / Swipe</span>
             <span class="key-badge">Space</span>
             <span style="margin-left: 0.5rem;">Full Screen:</span>
             <span class="key-badge">F</span>
@@ -786,20 +791,13 @@
         const totalSlides = slides.length;
         let currentSlide = 1;
 
-        const speakerNotes = {
-            1: "Good morning respected Professor. Today I present VUFIX, an interactive hostel maintenance portal designed for Vijaybhoomi University by myself, Aryaman Saboo, and Parth Pawar. This 7-slide deck covers our complete UX journey: empirical usability testing across 5 campus stakeholders, peer benchmarking against 3 classmates (Kunal/Ganesh, Prasad, and Neermay), and our architectural evolution raising our SUS score from 64.5 to 89.0.",
-            2: "Let's examine the core problem space. Dormitory maintenance at residential universities has historically operated as an information black hole. Over 1,200 students recorded complaints in paper logbooks, wardens had zero categorized visibility, and staff routinely marked issues 'Done' without resident verification. VUFIX replaces this broken chain with bidirectional transparency.",
-            3: "Our Information Architecture provides synchronized dual-role experiences: For residential students like Aryaman Saboo, room data is pre-authenticated, and complaints are submitted via a guided 3-step wizard with a live progress stepper. For Warden Rinu Babu, our admin portal provides high-density triage: 5 KPI stat cards, an urgent escalation alert banner, and a specialist staff roster with instant status dispatch.",
-            4: "In our 25% Usability Testing evaluation, we stress-tested VUFIX with 5 real campus users representing diverse cohorts: Aryaman (CS), Ananya (Design), Kabir (Freshman), Priya (Liberal Arts), and Mr. Dilip Rao from the Warden's office. We documented four broken Nielsen heuristics: Heuristic #2 for category confusion, Heuristic #5 for premature escalation, Heuristic #6 for staff trade recall, and Heuristic #3 for reopening anxiety. Each was redesigned with contextual chips, timer gating, and trade badges.",
-            5: "As required by the exam paper, we stress-tested how our system architecture held up under unpredictable human behavior. Rapid button mashing was neutralized via state-level debouncing; multi-tab desynchronization was solved with reactive window storage broadcast listeners; and extreme text inputs were protected using safe textContent rendering and CSS word-clamping.",
-            6: "For our 25% Peer Benchmarking evaluation, we met with 3 classmates: From Kunal & Ganesh's 'HostelFix', we compared monolithic forms vs our 3-step wizard (96% completion vs 74%) and adopted direct technician phone shortcuts. From Prasad's 'VU-ITDesk', we learned the value of explicit Resolution ETAs. And from Neermay's 'CampusServe', we adopted high-contrast glassmorphic timeline cards.",
-            7: "Our iterative redesigns yielded a dramatic quantitative leap: our System Usability Scale score leaped from 64.5 (Grade D) to 89.0 (Grade A+), task completion reached 96%, and average complaint filing time was slashed from 124 seconds to just 38 seconds. All 4 exam rubrics have been fulfilled, and I am fully prepared for your questions in the viva-voce session. Thank you!"
-        };
-
         function updateSlide() {
             slides.forEach(s => s.classList.remove('active'));
             const target = document.querySelector(`.slide[data-slide="${currentSlide}"]`);
-            if (target) target.classList.add('active');
+            if (target) {
+                target.classList.add('active');
+                target.scrollTop = 0;
+            }
 
             document.getElementById('current-slide').textContent = currentSlide;
             document.getElementById('progress-bar').style.width = `${(currentSlide / totalSlides) * 100}%`;
@@ -807,9 +805,10 @@
             document.getElementById('prev-btn').disabled = currentSlide === 1;
             document.getElementById('next-btn').innerHTML = currentSlide === totalSlides ? 'Finish <i class="fa-solid fa-check"></i>' : 'Next <i class="fa-solid fa-chevron-right"></i>';
 
-            // Update Speaker Notes
-            document.getElementById('notes-slide-num').textContent = `Slide ${currentSlide} of ${totalSlides}`;
-            document.getElementById('notes-content').textContent = speakerNotes[currentSlide] || "No pitch notes for this slide.";
+            const arrowPrev = document.getElementById('arrow-prev');
+            const arrowNext = document.getElementById('arrow-next');
+            if (arrowPrev) arrowPrev.style.opacity = currentSlide === 1 ? '0.3' : '1';
+            if (arrowNext) arrowNext.style.opacity = currentSlide === totalSlides ? '0.3' : '1';
         }
 
         function nextSlide() {
@@ -826,80 +825,69 @@
             }
         }
 
-        function toggleNotes() {
-            document.getElementById('notes-drawer').classList.toggle('open');
-        }
-
         function toggleFullScreen() {
             if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen();
+                document.documentElement.requestFullscreen().catch(() => {});
             } else if (document.exitFullscreen) {
-                document.exitFullscreen();
+                document.exitFullscreen().catch(() => {});
             }
         }
 
-        // Timer Implementation (5 Minutes = 300 seconds)
-        let timerSeconds = 300;
-        let timerInterval = null;
-        let isTimerRunning = false;
-
-        function updateTimerDisplay() {
-            const minutes = Math.floor(timerSeconds / 60);
-            const seconds = timerSeconds % 60;
-            document.getElementById('timer-display').textContent = 
-                `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-            
-            const badge = document.getElementById('deck-timer');
-            if (timerSeconds <= 60) {
-                badge.style.background = 'rgba(239, 68, 68, 0.2)';
-                badge.style.color = '#f87171';
-                badge.style.borderColor = 'rgba(239, 68, 68, 0.4)';
-            } else if (timerSeconds <= 120) {
-                badge.style.background = 'rgba(245, 158, 11, 0.2)';
-                badge.style.color = '#fbbf24';
+        // --- MOUSE WHEEL & TRACKPAD SCROLL NAVIGATION ---
+        let isWheeling = false;
+        window.addEventListener('wheel', (e) => {
+            if (isWheeling) return;
+            if (Math.abs(e.deltaY) > 20 || Math.abs(e.deltaX) > 20) {
+                if (e.deltaY > 0 || e.deltaX > 0) {
+                    nextSlide(); // Scroll down -> next slide
+                } else {
+                    prevSlide(); // Scroll up -> previous slide
+                }
+                isWheeling = true;
+                setTimeout(() => { isWheeling = false; }, 350);
             }
-        }
+        }, { passive: true });
 
-        function toggleTimer() {
-            const btn = document.getElementById('timer-btn');
-            if (isTimerRunning) {
-                clearInterval(timerInterval);
-                isTimerRunning = false;
-                btn.innerHTML = '<i class="fa-solid fa-play"></i> Resume Pitch Timer';
-            } else {
-                isTimerRunning = true;
-                btn.innerHTML = '<i class="fa-solid fa-pause"></i> Pause Timer';
-                timerInterval = setInterval(() => {
-                    if (timerSeconds > 0) {
-                        timerSeconds--;
-                        updateTimerDisplay();
-                    } else {
-                        clearInterval(timerInterval);
-                        isTimerRunning = false;
-                        alert('Time is up! 5 minutes pitch completed.');
-                    }
-                }, 1000);
+        // --- TOUCH & SWIPE NAVIGATION (Mobile, Tablets & Trackpads) ---
+        let touchStartY = 0;
+        let touchStartX = 0;
+        window.addEventListener('touchstart', (e) => {
+            if (e.touches.length > 0) {
+                touchStartY = e.touches[0].screenY;
+                touchStartX = e.touches[0].screenX;
             }
-        }
+        }, { passive: true });
 
-        // Keyboard Navigation
+        window.addEventListener('touchend', (e) => {
+            if (e.changedTouches.length > 0) {
+                const diffY = touchStartY - e.changedTouches[0].screenY;
+                const diffX = touchStartX - e.changedTouches[0].screenX;
+                // Swipe Up or Swipe Left -> Next Slide
+                if (diffY > 40 || diffX > 40) {
+                    nextSlide();
+                } 
+                // Swipe Down or Swipe Right -> Prev Slide
+                else if (diffY < -40 || diffX < -40) {
+                    prevSlide();
+                }
+            }
+        }, { passive: true });
+
+        // --- KEYBOARD ARROWS & SHORTCUTS ---
         window.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ' || e.key === 'PageDown') {
                 e.preventDefault();
                 nextSlide();
-            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') {
                 e.preventDefault();
                 prevSlide();
             } else if (e.key === 'f' || e.key === 'F') {
                 toggleFullScreen();
-            } else if (e.key === 'n' || e.key === 'N') {
-                toggleNotes();
             }
         });
 
-        // Initialize
+        // Initialize presentation
         updateSlide();
-        updateTimerDisplay();
     </script>
 </body>
 </html>
