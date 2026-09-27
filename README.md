@@ -4,6 +4,22 @@
 
 ---
 
+## ⚡ Quick Deliverable Navigation (Professor's Checklist)
+
+| Deliverable | Description | Direct Link |
+| :--- | :--- | :--- |
+| 📱 **Live Production Web App** | Fully interactive hostel maintenance portal with 3-step wizard, status tracking, filters, and role switcher. | [Launch VUFIX App](file:///c:/Users/umach/OneDrive/Desktop/vu_fix/index.html) |
+| 📊 **5-Minute Presentation Deck** | 7-slide 16:9 presentation deck pre-formatted with pitch cues, timer, and 1-click PDF export. | [Open Presentation Deck](file:///c:/Users/umach/OneDrive/Desktop/vu_fix/presentation_deck.html) |
+| 🎨 **Behance 1400px Showcase Board** | Full visual presentation board formatted to Behance dimensions with embedded screenshots, metrics, and quotes. | [Open Behance Showcase](file:///c:/Users/umach/OneDrive/Desktop/vu_fix/behance_showcase_1400px.html) |
+| 📝 **Behance Markdown Blueprint** | Exhaustive case study narrative formatted for Behance project publication. | [Read Behance Blueprint](file:///c:/Users/umach/OneDrive/Desktop/vu_fix/BEHANCE_BLUEPRINT.md) |
+| 📋 **Behance Metadata & Tags** | Copy-paste project title, summary, creative fields, tags, and publishing steps. | [Read Behance Metadata](file:///c:/Users/umach/OneDrive/Desktop/vu_fix/BEHANCE_METADATA.md) |
+| 🧪 **Usability Testing Report (25%)** | Think-aloud testing logs across 5 campus stakeholders and 10 Nielsen Heuristics evaluation. | [Read Usability Report](file:///c:/Users/umach/OneDrive/Desktop/vu_fix/USABILITY_TESTING_REPORT.md) |
+| 👥 **Peer Benchmarking Report (25%)** | Comparative analysis against 3 classmates (Kunal/Ganesh, Prasad, Neermay). | [Read Peer Benchmarking](file:///c:/Users/umach/OneDrive/Desktop/vu_fix/PEER_BENCHMARKING_REPORT.md) |
+| 📑 **Mid-Term Research Case Study** | Original academic paper covering Personas, Empathy Map, Card Sort, and IA Trees V1/V2. | [Read Research Paper](file:///c:/Users/umach/OneDrive/Desktop/vu_fix/MIDTERM_RESEARCH_CASE_STUDY.md) |
+| 📐 **Figma Design Source** | Original UI wireframes and interactive flows. | [View Design Source Specs](file:///c:/Users/umach/OneDrive/Desktop/vu_fix/MIDTERM_RESEARCH_CASE_STUDY.md#5-information-architecture-evolution-from-v1-to-v2) |
+
+---
+
 ## ⚡ Key Features
 
 - **Dual Portal & Role-Based Management**:

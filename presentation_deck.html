@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUFIX — 7-Slide 5-Minute HCI Presentation Deck | STET301</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #e0e7ff;
+            --accent: #06b6d4;
+            --accent-glow: rgba(6, 182, 212, 0.25);
+            --bg-dark: #090d16;
+            --bg-card: rgba(22, 28, 45, 0.78);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        /* Top Header Control Bar */
+        .deck-topbar {
+            height: 60px;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border-glass);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1.5rem;
+            z-index: 100;
+        }
+
+        .deck-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 800;
+            font-size: 1.1rem;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #a5b4fc, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .deck-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .timer-badge {
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            color: #818cf8;
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-deck {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-glass);
+            color: var(--text-main);
+            padding: 0.4rem 0.85rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.825rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-deck:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-deck.primary {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-deck.primary:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Slide Stage Container */
+        .stage-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            position: relative;
+            background: radial-gradient(circle at 50% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 60%),
+                        radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
+        }
+
+        .slide-viewport {
+            width: 100%;
+            max-width: 1200px;
+            aspect-ratio: 16 / 9;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 18px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.55), 0 0 40px rgba(99, 102, 241, 0.1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            padding: 2.75rem 3.5rem;
+            flex-direction: column;
+            justify-content: space-between;
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Slide Layout Elements */
+        .slide-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            color: #a5b4fc;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.6rem;
+            width: fit-content;
+        }
+
+        .slide-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.4rem;
+            background: linear-gradient(135deg, #ffffff 60%, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .slide-subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+            margin-bottom: 1.25rem;
+        }
+
+        .slide-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Slide Content Components */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+
+        .feature-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 1.25rem;
+            transition: all 0.25s ease;
+        }
+
+        .feature-box:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .box-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            background: rgba(99, 102, 241, 0.15);
+            color: #818cf8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .box-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.35rem;
+        }
+
+        .box-desc {
+            font-size: 0.825rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+
+        .stat-badge-huge {
+            font-size: 2.75rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            color: #38bdf8;
+            line-height: 1;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.825rem;
+        }
+
+        .comparison-table th {
+            text-align: left;
+            padding: 0.65rem 0.85rem;
+            background: rgba(255, 255, 255, 0.04);
+            border-bottom: 1px solid var(--border-glass);
+            color: #a5b4fc;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.725rem;
+            letter-spacing: 0.05em;
+        }
+
+        .comparison-table td {
+            padding: 0.65rem 0.85rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            color: #cbd5e1;
+            vertical-align: middle;
+        }
+
+        .comparison-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Slide Footer & Navigation */
+        .slide-footer {
+            height: 48px;
+            border-top: 1px solid var(--border-glass);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 3.5rem;
+            background: rgba(10, 15, 29, 0.4);
+            font-size: 0.775rem;
+            color: var(--text-muted);
+        }
+
+        .progress-bar-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 14.28%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 0.3s ease;
+        }
+
+        /* Speaker Notes Drawer */
+        .notes-drawer {
+            position: absolute;
+            right: 1.5rem;
+            bottom: 80px;
+            width: 400px;
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-glass);
+            border-radius: 14px;
+            padding: 1.25rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            display: none;
+            z-index: 90;
+            font-size: 0.85rem;
+            line-height: 1.55;
+            color: #cbd5e1;
+        }
+
+        .notes-drawer.open {
+            display: block;
+        }
+
+        .notes-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #818cf8;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        /* Bottom Controls */
+        .deck-bottombar {
+            height: 60px;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(14px);
+            border-top: 1px solid var(--border-glass);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1.5rem;
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .slide-counter {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            padding: 0 0.5rem;
+        }
+
+        .keyboard-hint {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .key-badge {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: #cbd5e1;
+        }
+
+        /* Printable Mode */
+        @media print {
+            body { overflow: visible; background: white; color: black; }
+            .deck-topbar, .deck-bottombar, .notes-drawer { display: none !important; }
+            .stage-container { padding: 0; }
+            .slide-viewport { border: none; box-shadow: none; aspect-ratio: auto; }
+            .slide { display: flex !important; page-break-after: always; height: 100vh; padding: 2rem; background: white; color: black; }
+            .slide-title { -webkit-text-fill-color: black; }
+            .feature-box { border: 1px solid #ddd; background: #fafafa; }
+            .box-title { color: #111; }
+            .box-desc { color: #555; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <header class="deck-topbar">
+        <div class="deck-logo">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>VUFIX — 7-Slide 5-Min Presentation Deck</span>
+            <span style="font-size: 0.75rem; color: #94a3b8; font-weight: 500;">| STET301 End-Term HCI</span>
+        </div>
+
+        <div class="deck-info">
+            <div class="timer-badge" id="deck-timer">
+                <i class="fa-regular fa-clock"></i>
+                <span id="timer-display">05:00</span>
+            </div>
+            <button class="btn-deck" onclick="toggleTimer()" id="timer-btn">
+                <i class="fa-solid fa-play"></i> Start Pitch Timer
+            </button>
+            <button class="btn-deck" onclick="toggleNotes()">
+                <i class="fa-solid fa-comment-dots"></i> Speaker Notes & Cues
+            </button>
+            <a href="index.html" class="btn-deck">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Live App
+            </a>
+            <a href="behance_showcase_1400px.html" class="btn-deck primary">
+                <i class="fa-brands fa-behance"></i> Behance Board
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Presentation Stage -->
+    <main class="stage-container">
+        <div class="slide-viewport">
+            
+            <!-- SLIDE 1: Title & Project Identity -->
+            <section class="slide active" data-slide="1" data-duration="0:40">
+                <div>
+                    <div class="slide-tag"><i class="fa-solid fa-graduation-cap"></i> STET301 · Human Computer Interaction · End-Term Exam</div>
+                    <h1 class="slide-title">VUFIX: Designing Frictionless Hostel Maintenance</h1>
+                    <p class="slide-subtitle">A dual-role progressive UX ecosystem connecting 1,200+ residential students with campus facilities administration.</p>
+                </div>
+                <div class="slide-body">
+                    <div class="grid-3">
+                        <div class="feature-box">
+                            <div class="box-icon"><i class="fa-solid fa-user-graduate"></i></div>
+                            <div class="box-title">Student Presenter</div>
+                            <div class="box-desc"><strong>Aryaman Saboo</strong> (ST20230042)<br>Collaborator: <strong>Parth Pawar</strong> (ST20230088)<br>Vijaybhoomi University</div>
+                        </div>
+                        <div class="feature-box">
+                            <div class="box-icon"><i class="fa-solid fa-bullseye"></i></div>
+                            <div class="box-title">Rubrics Alignment (40M)</div>
+                            <div class="box-desc">• Usability Testing & Analysis (25%)<br>• Peer Benchmarking (25%)<br>• 5-Min Presentation (25%)<br>• Behance Case Study (25%)</div>
+                        </div>
+                        <div class="feature-box">
+                            <div class="box-icon"><i class="fa-solid fa-code"></i></div>
+                            <div class="box-title">Architecture & System</div>
+                            <div class="box-desc">Single-Page Application, LocalStorage Reactive Store, Live Stepper, Two-Way Warden Escalation Engine.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-footer">
+                    <span>Vijaybhoomi School of Science & Technology</span>
+                    <span>Slide 1 / 7 · Pitch Time: 0:00 – 0:40 (40s)</span>
+                </div>
+            </section>
+
+            <!-- SLIDE 2: Problem Space & Context -->
+            <section class="slide" data-slide="2" data-duration="0:40">
+                <div>
+                    <div class="slide-tag"><i class="fa-solid fa-triangle-exclamation"></i> Problem Discovery</div>
+                    <h1 class="slide-title">The "Black Hole" of Dormitory Maintenance</h1>
+                    <p class="slide-subtitle">Paper logbooks and fragmented WhatsApp groups caused systemic failure across 4 residential blocks.</p>
+                </div>
+                <div class="slide-body">
+                    <div class="grid-3">
+                        <div class="feature-box" style="border-left: 3px solid var(--danger);">
+                            <div class="box-icon" style="background: rgba(239, 68, 68, 0.15); color: #f87171;"><i class="fa-solid fa-eye-slash"></i></div>
+                            <div class="box-title">Zero Status Transparency</div>
+                            <div class="box-desc">Students file physical complaints in hostel registers with no tracking, leading to endless anxiety and repeated visits to the warden office.</div>
+                        </div>
+                        <div class="feature-box" style="border-left: 3px solid var(--warning);">
+                            <div class="box-icon" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;"><i class="fa-solid fa-route"></i></div>
+                            <div class="box-title">Misrouted Technician Triage</div>
+                            <div class="box-desc">Wardens lacked structured categorization, routinely dispatching electrical technicians to plumbing emergencies, creating 48hr+ resolution lags.</div>
+                        </div>
+                        <div class="feature-box" style="border-left: 3px solid #38bdf8;">
+                            <div class="box-icon" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8;"><i class="fa-solid fa-ghost"></i></div>
+                            <div class="box-title">Phantom Resolutions</div>
+                            <div class="box-desc">Staff marked tickets "Done" on paper clipboards without resident verification, forcing students to re-register issues when repairs failed.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-footer">
+                    <span>Problem Space & Context Analysis</span>
+                    <span>Slide 2 / 7 · Pitch Time: 0:40 – 1:20 (40s)</span>
+                </div>
+            </section>
+
+            <!-- SLIDE 3: System Architecture & Dual-Role IA -->
+            <section class="slide" data-slide="3" data-duration="0:40">
+                <div>
+                    <div class="slide-tag"><i class="fa-solid fa-network-wired"></i> Information Architecture</div>
+                    <h1 class="slide-title">Dual-Role Synchronized System Architecture</h1>
+                    <p class="slide-subtitle">Purpose-built interfaces for both residential Students and the Hostel Warden Administration.</p>
+                </div>
+                <div class="slide-body">
+                    <div class="grid-2">
+                        <div class="feature-box">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="box-icon" style="margin: 0;"><i class="fa-solid fa-graduation-cap"></i></span>
+                                <h3 class="box-title" style="margin: 0; font-size: 1.05rem;">Student Portal (Aryaman Saboo)</h3>
+                            </div>
+                            <ul style="padding-left: 1.25rem; font-size: 0.825rem; color: #cbd5e1; line-height: 1.65;">
+                                <li><strong>Pre-Authenticated Identity:</strong> Automatically binds Hostel A, Block B3, Room B3-304.</li>
+                                <li><strong>Guided 3-Step Wizard:</strong> Category tiles ➔ Issue details ➔ Confirmation.</li>
+                                <li><strong>Live Stepper:</strong> Transparent milestone progress with assigned technician & ETA.</li>
+                                <li><strong>Two-Way Verification:</strong> Explicit "Yes, Fixed" vs "No, Still Broken" loop.</li>
+                            </ul>
+                        </div>
+                        <div class="feature-box">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="box-icon" style="margin: 0; background: rgba(16, 185, 129, 0.15); color: #34d399;"><i class="fa-solid fa-shield-halved"></i></span>
+                                <h3 class="box-title" style="margin: 0; font-size: 1.05rem;">Warden Portal (Warden Rinu Babu)</h3>
+                            </div>
+                            <ul style="padding-left: 1.25rem; font-size: 0.825rem; color: #cbd5e1; line-height: 1.65;">
+                                <li><strong>High-Density Triage Dashboard:</strong> 5 real-time KPI stat cards with 1-click filters.</li>
+                                <li><strong>Urgent Escalation Banner:</strong> High-priority visual alert for delayed issues.</li>
+                                <li><strong>Specialist Staff Dispatch:</strong> Auto-matching trade roster (Plumbing, Electrical, IT).</li>
+                                <li><strong>Live Student Timeline Sync:</strong> Push internal warden notes directly to student app.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-footer">
+                    <span>Role-Based Design & Cognitive Division</span>
+                    <span>Slide 3 / 7 · Pitch Time: 1:20 – 2:00 (40s)</span>
+                </div>
+            </section>
+
+            <!-- SLIDE 4: Usability Testing & Broken Heuristics -->
+            <section class="slide" data-slide="4" data-duration="0:50">
+                <div>
+                    <div class="slide-tag"><i class="fa-solid fa-vial"></i> Usability Testing (25% Weightage)</div>
+                    <h1 class="slide-title">Usability Testing & Broken Nielsen Heuristics</h1>
+                    <p class="slide-subtitle">Evaluated across 5 real campus users (Aryaman, Ananya, Kabir, Priya, and Warden Asst. Dilip Rao).</p>
+                </div>
+                <div class="slide-body">
+                    <div class="grid-2">
+                        <div class="feature-box" style="border-left: 3px solid var(--danger);">
+                            <div class="box-title" style="color: #f87171;">Heuristic #2: Match System & Real World</div>
+                            <div class="box-desc" style="margin-bottom: 0.35rem;"><strong>Friction:</strong> Users hesitated between "Electrical" vs "Furniture" when reporting desk lamp socket repairs.</div>
+                            <div style="font-size: 0.75rem; color: #86efac;"><strong>Fix:</strong> Enriched categories with contextual sub-labels (Electrical: Fan, Light, Socket, Geyser).</div>
+                        </div>
+                        <div class="feature-box" style="border-left: 3px solid var(--warning);">
+                            <div class="box-title" style="color: #fbbf24;">Heuristic #5: Error Prevention</div>
+                            <div class="box-desc" style="margin-bottom: 0.35rem;"><strong>Friction:</strong> Freshmen clicked "Escalate to Warden" 10 minutes after submitting, assuming it was a fast-track button.</div>
+                            <div style="font-size: 0.75rem; color: #86efac;"><strong>Fix:</strong> Implemented dynamic SLA timer gating ("Eligible in 18 hrs") and mandatory reason prompt.</div>
+                        </div>
+                        <div class="feature-box" style="border-left: 3px solid #38bdf8;">
+                            <div class="box-title" style="color: #38bdf8;">Heuristic #6: Recognition Rather Than Recall</div>
+                            <div class="box-desc" style="margin-bottom: 0.35rem;"><strong>Friction:</strong> Warden assistant struggled to remember staff specialties from plain employee names.</div>
+                            <div style="font-size: 0.75rem; color: #86efac;"><strong>Fix:</strong> Added trade specialty badges & auto-recommendation matching in staff dispatch dropdown.</div>
+                        </div>
+                        <div class="feature-box" style="border-left: 3px solid #a855f7;">
+                            <div class="box-title" style="color: #c084fc;">Heuristic #3: User Control & Freedom</div>
+                            <div class="box-desc" style="margin-bottom: 0.35rem;"><strong>Friction:</strong> Students hesitated to mark "No, Still Broken" fearing loss of prior repair records.</div>
+                            <div style="font-size: 0.75rem; color: #86efac;"><strong>Fix:</strong> Added explicit modal assuring students that reopening keeps full timeline history intact.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-footer">
+                    <span>Usability Testing Across 5 Real Users & 10 Nielsen Heuristics</span>
+                    <span>Slide 4 / 7 · Pitch Time: 2:00 – 2:50 (50s)</span>
+                </div>
+            </section>
+
+            <!-- SLIDE 5: Architectural Stress-Testing -->
+            <section class="slide" data-slide="5" data-duration="0:45">
+                <div>
+                    <div class="slide-tag"><i class="fa-solid fa-microchip"></i> System Robustness</div>
+                    <h1 class="slide-title">System Architecture vs Unpredictable Human Behavior</h1>
+                    <p class="slide-subtitle">Stress-testing the reactive state layer against erratic human interaction patterns.</p>
+                </div>
+                <div class="slide-body">
+                    <div class="grid-3">
+                        <div class="feature-box">
+                            <div class="box-icon" style="background: rgba(239, 68, 68, 0.15); color: #f87171;"><i class="fa-solid fa-bolt"></i></div>
+                            <div class="box-title">Rapid Double-Clicking</div>
+                            <div class="box-desc"><strong>Behavior:</strong> Users rapidly mashed submit button on slow connections.<br><strong>Fix:</strong> State-level debouncing and submission lock flag preventing duplicate database writes.</div>
+                        </div>
+                        <div class="feature-box" style="background: rgba(56, 189, 248, 0.05); border-color: rgba(56, 189, 248, 0.2);">
+                            <div class="box-icon" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8;"><i class="fa-solid fa-window-restore"></i></div>
+                            <div class="box-title">Multi-Tab Desync</div>
+                            <div class="box-desc"><strong>Behavior:</strong> Student escalated on Tab 1 while Warden resolved on Tab 2.<br><strong>Fix:</strong> Window `storage` event broadcast listeners refreshing in-memory state automatically.</div>
+                        </div>
+                        <div class="feature-box">
+                            <div class="box-icon" style="background: rgba(16, 185, 129, 0.15); color: #34d399;"><i class="fa-solid fa-shield-virus"></i></div>
+                            <div class="box-title">Malicious Input Payloads</div>
+                            <div class="box-desc"><strong>Behavior:</strong> Users pasted raw HTML/scripts into issue descriptions.<br><strong>Fix:</strong> Strict textContent node rendering and CSS break-word bounds preventing DOM injection.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-footer">
+                    <span>State Integrity & Architectural Resiliency</span>
+                    <span>Slide 5 / 7 · Pitch Time: 2:50 – 3:35 (45s)</span>
+                </div>
+            </section>
+
+            <!-- SLIDE 6: Peer Benchmarking (Kunal/Ganesh, Prasad, Neermay) -->
+            <section class="slide" data-slide="6" data-duration="0:45">
+                <div>
+                    <div class="slide-tag"><i class="fa-solid fa-people-arrows"></i> Peer Benchmarking (25% Weightage)</div>
+                    <h1 class="slide-title">Comparative Analysis Across 3 Classmates</h1>
+                    <p class="slide-subtitle">Analyzing alternative Information Architectures and UI logic paradigms with fellow students.</p>
+                </div>
+                <div class="slide-body">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Classmate / Project</th>
+                                <th>Their UI Architecture</th>
+                                <th>VUFIX Structural Choice</th>
+                                <th>Key Learning Adopted</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Kunal / Ganesh</strong><br><span style="font-size: 0.725rem; color: #94a3b8;">Hostel Maintenance</span></td>
+                                <td>Monolithic single-scroll long form + WhatsApp ping</td>
+                                <td>Guided 3-Step Wizard with visual category selector cards</td>
+                                <td>Added direct 1-tap `tel:` phone shortcut to assigned technician profile for urgent call-backs.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Prasad</strong><br><span style="font-size: 0.725rem; color: #94a3b8;">IT Helpdesk & SLA</span></td>
+                                <td>Strict ITIL 8-state model with automated countdown timers</td>
+                                <td>Streamlined 5-milestone visual stepper with student escalation</td>
+                                <td>Incorporated explicit Resolution ETA timestamps set by Warden during technician assignment.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Neermay</strong><br><span style="font-size: 0.725rem; color: #94a3b8;">Campus Facilities</span></td>
+                                <td>Dorm door QR scan with 48hr auto-closure policy</td>
+                                <td>Pre-bound authenticated profiles with active dual confirmation</td>
+                                <td>Refined visual glassmorphic vertical stepper cards and timestamp badges for status clarity.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="slide-footer">
+                    <span>Cross-Cohort Architectural Evaluation</span>
+                    <span>Slide 6 / 7 · Pitch Time: 3:35 – 4:20 (45s)</span>
+                </div>
+            </section>
+
+            <!-- SLIDE 7: Quantitative Leap & Viva Voce Readiness -->
+            <section class="slide" data-slide="7" data-duration="0:40">
+                <div>
+                    <div class="slide-tag"><i class="fa-solid fa-flag-checkered"></i> Quantitative Impact & Viva Voce</div>
+                    <h1 class="slide-title">Usability Leap (SUS 64.5 ➔ 89.0) & Viva Voce</h1>
+                    <p class="slide-subtitle">Measurable empirical validation and complete readiness for examination evaluation.</p>
+                </div>
+                <div class="slide-body">
+                    <div class="grid-3 mb-4">
+                        <div class="feature-box text-center">
+                            <div class="stat-badge-huge" style="color: #34d399;">89.0</div>
+                            <div class="box-title mt-2">System Usability Scale (SUS)</div>
+                            <div class="box-desc">Jumped from 64.5 (Grade D) to 89.0 (Grade A+ / 97th percentile).</div>
+                        </div>
+                        <div class="feature-box text-center">
+                            <div class="stat-badge-huge" style="color: #38bdf8;">96%</div>
+                            <div class="box-title mt-2">Task Completion Rate</div>
+                            <div class="box-desc">Increased from 76% baseline. Zero abandoned complaint filings.</div>
+                        </div>
+                        <div class="feature-box text-center">
+                            <div class="stat-badge-huge" style="color: #a78bfa;">38s</div>
+                            <div class="box-title mt-2">Average Filing Time</div>
+                            <div class="box-desc">Slashed by 69% from 124s. Frictionless dormitory maintenance.</div>
+                        </div>
+                    </div>
+                    <div class="feature-box" style="background: rgba(99, 102, 241, 0.08); border-color: rgba(99, 102, 241, 0.25);">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span style="font-size: 0.8rem; font-weight: 700; color: #a5b4fc;"><i class="fa-solid fa-circle-check"></i> ALL 4 RUBRICS FULFILLED:</span>
+                                <span style="font-size: 0.8rem; color: #cbd5e1; margin-left: 0.5rem;">Usability Testing (25%) · Peer Benchmarking (25%) · 5-Min Presentation (25%) · Behance Case Study (25%)</span>
+                            </div>
+                            <span class="badge" style="background: rgba(16, 185, 129, 0.2); color: #34d399; padding: 0.25rem 0.65rem; border-radius: 6px; font-weight: 700; font-size: 0.8rem;">Ready for Viva Voce Q&A</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-footer">
+                    <span>Thank You! · Open for Viva Voce Questions</span>
+                    <span>Slide 7 / 7 · Pitch Time: 4:20 – 5:00 (40s)</span>
+                </div>
+            </section>
+
+            <!-- Progress Bar -->
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="progress-bar"></div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Speaker Notes Drawer -->
+    <div class="notes-drawer" id="notes-drawer">
+        <div class="notes-header">
+            <span><i class="fa-solid fa-microphone"></i> Pitch Cues & Script</span>
+            <span id="notes-slide-num">Slide 1 of 7</span>
+        </div>
+        <div id="notes-content">
+            "Good morning respected Professor and examiners. Today I am presenting VUFIX, an interactive hostel maintenance portal designed for Vijaybhoomi University..."
+        </div>
+    </div>
+
+    <!-- Bottom Controls Bar -->
+    <footer class="deck-bottombar">
+        <div class="keyboard-hint">
+            <span>Navigate:</span>
+            <span class="key-badge">←</span>
+            <span class="key-badge">→</span>
+            <span class="key-badge">Space</span>
+            <span style="margin-left: 0.5rem;">Full Screen:</span>
+            <span class="key-badge">F</span>
+        </div>
+
+        <div class="nav-controls">
+            <button class="btn-deck" onclick="prevSlide()" id="prev-btn">
+                <i class="fa-solid fa-chevron-left"></i> Prev
+            </button>
+            <div class="slide-counter">
+                <span id="current-slide">1</span> / <span id="total-slides">7</span>
+            </div>
+            <button class="btn-deck primary" onclick="nextSlide()" id="next-btn">
+                Next <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <div>
+            <button class="btn-deck" onclick="window.print()">
+                <i class="fa-solid fa-print"></i> 1-Click PDF Export
+            </button>
+            <button class="btn-deck" onclick="toggleFullScreen()">
+                <i class="fa-solid fa-expand"></i> Full Screen
+            </button>
+        </div>
+    </footer>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        let currentSlide = 1;
+
+        const speakerNotes = {
+            1: "Good morning respected Professor. Today I present VUFIX, an interactive hostel maintenance portal designed for Vijaybhoomi University by myself, Aryaman Saboo, and Parth Pawar. This 7-slide deck covers our complete UX journey: empirical usability testing across 5 campus stakeholders, peer benchmarking against 3 classmates (Kunal/Ganesh, Prasad, and Neermay), and our architectural evolution raising our SUS score from 64.5 to 89.0.",
+            2: "Let's examine the core problem space. Dormitory maintenance at residential universities has historically operated as an information black hole. Over 1,200 students recorded complaints in paper logbooks, wardens had zero categorized visibility, and staff routinely marked issues 'Done' without resident verification. VUFIX replaces this broken chain with bidirectional transparency.",
+            3: "Our Information Architecture provides synchronized dual-role experiences: For residential students like Aryaman Saboo, room data is pre-authenticated, and complaints are submitted via a guided 3-step wizard with a live progress stepper. For Warden Rinu Babu, our admin portal provides high-density triage: 5 KPI stat cards, an urgent escalation alert banner, and a specialist staff roster with instant status dispatch.",
+            4: "In our 25% Usability Testing evaluation, we stress-tested VUFIX with 5 real campus users representing diverse cohorts: Aryaman (CS), Ananya (Design), Kabir (Freshman), Priya (Liberal Arts), and Mr. Dilip Rao from the Warden's office. We documented four broken Nielsen heuristics: Heuristic #2 for category confusion, Heuristic #5 for premature escalation, Heuristic #6 for staff trade recall, and Heuristic #3 for reopening anxiety. Each was redesigned with contextual chips, timer gating, and trade badges.",
+            5: "As required by the exam paper, we stress-tested how our system architecture held up under unpredictable human behavior. Rapid button mashing was neutralized via state-level debouncing; multi-tab desynchronization was solved with reactive window storage broadcast listeners; and extreme text inputs were protected using safe textContent rendering and CSS word-clamping.",
+            6: "For our 25% Peer Benchmarking evaluation, we met with 3 classmates: From Kunal & Ganesh's 'HostelFix', we compared monolithic forms vs our 3-step wizard (96% completion vs 74%) and adopted direct technician phone shortcuts. From Prasad's 'VU-ITDesk', we learned the value of explicit Resolution ETAs. And from Neermay's 'CampusServe', we adopted high-contrast glassmorphic timeline cards.",
+            7: "Our iterative redesigns yielded a dramatic quantitative leap: our System Usability Scale score leaped from 64.5 (Grade D) to 89.0 (Grade A+), task completion reached 96%, and average complaint filing time was slashed from 124 seconds to just 38 seconds. All 4 exam rubrics have been fulfilled, and I am fully prepared for your questions in the viva-voce session. Thank you!"
+        };
+
+        function updateSlide() {
+            slides.forEach(s => s.classList.remove('active'));
+            const target = document.querySelector(`.slide[data-slide="${currentSlide}"]`);
+            if (target) target.classList.add('active');
+
+            document.getElementById('current-slide').textContent = currentSlide;
+            document.getElementById('progress-bar').style.width = `${(currentSlide / totalSlides) * 100}%`;
+
+            document.getElementById('prev-btn').disabled = currentSlide === 1;
+            document.getElementById('next-btn').innerHTML = currentSlide === totalSlides ? 'Finish <i class="fa-solid fa-check"></i>' : 'Next <i class="fa-solid fa-chevron-right"></i>';
+
+            // Update Speaker Notes
+            document.getElementById('notes-slide-num').textContent = `Slide ${currentSlide} of ${totalSlides}`;
+            document.getElementById('notes-content').textContent = speakerNotes[currentSlide] || "No pitch notes for this slide.";
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                updateSlide();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 1) {
+                currentSlide--;
+                updateSlide();
+            }
+        }
+
+        function toggleNotes() {
+            document.getElementById('notes-drawer').classList.toggle('open');
+        }
+
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+        }
+
+        // Timer Implementation (5 Minutes = 300 seconds)
+        let timerSeconds = 300;
+        let timerInterval = null;
+        let isTimerRunning = false;
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timerSeconds / 60);
+            const seconds = timerSeconds % 60;
+            document.getElementById('timer-display').textContent = 
+                `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            
+            const badge = document.getElementById('deck-timer');
+            if (timerSeconds <= 60) {
+                badge.style.background = 'rgba(239, 68, 68, 0.2)';
+                badge.style.color = '#f87171';
+                badge.style.borderColor = 'rgba(239, 68, 68, 0.4)';
+            } else if (timerSeconds <= 120) {
+                badge.style.background = 'rgba(245, 158, 11, 0.2)';
+                badge.style.color = '#fbbf24';
+            }
+        }
+
+        function toggleTimer() {
+            const btn = document.getElementById('timer-btn');
+            if (isTimerRunning) {
+                clearInterval(timerInterval);
+                isTimerRunning = false;
+                btn.innerHTML = '<i class="fa-solid fa-play"></i> Resume Pitch Timer';
+            } else {
+                isTimerRunning = true;
+                btn.innerHTML = '<i class="fa-solid fa-pause"></i> Pause Timer';
+                timerInterval = setInterval(() => {
+                    if (timerSeconds > 0) {
+                        timerSeconds--;
+                        updateTimerDisplay();
+                    } else {
+                        clearInterval(timerInterval);
+                        isTimerRunning = false;
+                        alert('Time is up! 5 minutes pitch completed.');
+                    }
+                }, 1000);
+            }
+        }
+
+        // Keyboard Navigation
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                e.preventDefault();
+                prevSlide();
+            } else if (e.key === 'f' || e.key === 'F') {
+                toggleFullScreen();
+            } else if (e.key === 'n' || e.key === 'N') {
+                toggleNotes();
+            }
+        });
+
+        // Initialize
+        updateSlide();
+        updateTimerDisplay();
+    </script>
+</body>
+</html>

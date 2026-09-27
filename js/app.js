@@ -60,6 +60,24 @@ function renderLogin() {
                     <p class="text-muted text-sm mt-1">Hostel Maintenance & Complaint Management System</p>
                 </div>
 
+                <!-- STET301 Exam Deliverables Bar -->
+                <div style="background: linear-gradient(135deg, rgba(79, 70, 229, 0.08), rgba(6, 182, 212, 0.08)); border: 1px solid rgba(99, 102, 241, 0.25); border-radius: 10px; padding: 0.75rem 1rem; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap;">
+                    <div style="font-weight: 700; font-size: 0.8rem; color: #4338ca;">
+                        <i class="fa-solid fa-graduation-cap"></i> STET301 Exam Deliverables
+                    </div>
+                    <div class="flex gap-2" style="flex-wrap: wrap;">
+                        <button type="button" class="btn btn-sm" onclick="openProfessorChecklistModal()" style="font-size: 0.75rem; padding: 0.25rem 0.65rem; background: #f59e0b; color: #1e1b4b; font-weight: 700; border: none;">
+                            <i class="fa-solid fa-list-check"></i> Professor's Checklist
+                        </button>
+                        <a href="presentation_deck.html" target="_blank" class="btn btn-primary btn-sm" style="font-size: 0.75rem; padding: 0.25rem 0.65rem;">
+                            <i class="fa-solid fa-layer-group"></i> 5-Min Deck
+                        </a>
+                        <a href="behance_showcase_1400px.html" target="_blank" class="btn btn-secondary btn-sm" style="font-size: 0.75rem; padding: 0.25rem 0.65rem; color: #0057ff; border-color: rgba(0, 87, 255, 0.3);">
+                            <i class="fa-brands fa-behance"></i> Behance Board
+                        </a>
+                    </div>
+                </div>
+
                 <!-- Tab Switcher -->
                 <div class="login-tabs">
                     <button class="login-tab-btn ${currentLoginTab === 'student' ? 'active' : ''}" onclick="switchLoginTab('student')">
@@ -230,6 +248,17 @@ function renderLayout(user) {
                         <div class="font-bold text-lg hidden-mobile text-primary">
                             ${user.role === 'admin' ? '🛡️ VUFIX — Warden Management Portal' : '🏫 VUFIX — Student Maintenance Service'}
                         </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button class="btn btn-sm" onclick="openProfessorChecklistModal()" style="font-weight: 700; font-size: 0.8rem; background: #fef3c7; color: #b45309; border: 1px solid #fde68a;">
+                            <i class="fa-solid fa-list-check"></i> <span class="hidden-mobile">Professor's</span> Checklist
+                        </button>
+                        <a href="presentation_deck.html" target="_blank" class="btn btn-secondary btn-sm" style="font-weight: 600; border-color: #6366f1; color: #4f46e5; text-decoration: none;">
+                            <i class="fa-solid fa-layer-group"></i> <span class="hidden-mobile">5-Min</span> Deck
+                        </a>
+                        <a href="behance_showcase_1400px.html" target="_blank" class="btn btn-secondary btn-sm" style="font-weight: 600; border-color: #0057ff; color: #0057ff; text-decoration: none;">
+                            <i class="fa-brands fa-behance"></i> <span class="hidden-mobile">Behance</span> Board
+                        </a>
                     </div>
                     <div class="user-menu">
                         <div class="text-right hidden-mobile">
@@ -1046,6 +1075,128 @@ window.saveAdminTicketChanges = function(e, id) {
     } else {
         renderComplaintDetail(document.getElementById('page-content'), id);
     }
+// ---------------- PROFESSOR'S DELIVERABLES CHECKLIST MODAL ----------------
+window.openProfessorChecklistModal = function() {
+    const modalContainer = document.getElementById('modal-container') || document.body;
+    let target = document.getElementById('modal-container');
+    if (!target) {
+        target = document.createElement('div');
+        target.id = 'modal-container';
+        document.body.appendChild(target);
+    }
+
+    target.innerHTML = `
+        <div class="modal-overlay" onclick="closeProfessorChecklistModal(event)">
+            <div class="modal-card" style="max-width: 900px; width: 95%; max-height: 90vh; overflow-y: auto;" onclick="event.stopPropagation()">
+                <div class="modal-header" style="background: linear-gradient(135deg, #1e1b4b, #312e81); color: white; padding: 1.25rem 1.5rem; border-radius: var(--radius-lg) var(--radius-lg) 0 0;">
+                    <div>
+                        <div class="text-xs" style="color: #a5b4fc; text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em;">
+                            <i class="fa-solid fa-graduation-cap"></i> STET301 End-Term Examination
+                        </div>
+                        <h3 style="color: white; font-weight: 800; font-size: 1.25rem; margin-top: 0.25rem;">
+                            Quick Deliverable Navigation (Professor's Checklist)
+                        </h3>
+                    </div>
+                    <button class="btn btn-secondary btn-sm" onclick="closeProfessorChecklistModal()" style="background: rgba(255,255,255,0.15); border: none; color: white;">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                
+                <div style="padding: 1.5rem;">
+                    <p class="text-muted text-sm mb-4">
+                        All examination requirements have been prepared according to the STET301 prompt and rubrics (40 Marks). Click any direct link below to launch or view:
+                    </p>
+
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+                            <thead>
+                                <tr style="background: #f1f5f9; border-bottom: 2px solid #e2e8f0; text-align: left;">
+                                    <th style="padding: 0.75rem 1rem;">Deliverable</th>
+                                    <th style="padding: 0.75rem 1rem;">Description</th>
+                                    <th style="padding: 0.75rem 1rem; text-align: right;">Direct Link</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid #e2e8f0;">
+                                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #1e1b4b;">📱 Live Production Web App</td>
+                                    <td style="padding: 0.75rem 1rem; color: #64748b;">Fully interactive hostel maintenance portal with 3-step wizard, status tracking, filters, and role switcher.</td>
+                                    <td style="padding: 0.75rem 1rem; text-align: right;">
+                                        <button class="btn btn-primary btn-sm" onclick="closeProfessorChecklistModal(); renderApp();" style="font-size: 0.75rem;">Launch VUFIX App</button>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e2e8f0; background: #fafafa;">
+                                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #4338ca;">📊 5-Minute Presentation Deck</td>
+                                    <td style="padding: 0.75rem 1rem; color: #64748b;">7-slide 16:9 presentation deck pre-formatted with pitch cues, timer, and 1-click PDF export.</td>
+                                    <td style="padding: 0.75rem 1rem; text-align: right;">
+                                        <a href="presentation_deck.html" target="_blank" class="btn btn-secondary btn-sm" style="font-size: 0.75rem; text-decoration: none; border-color: #6366f1; color: #4f46e5;">Open Presentation Deck</a>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e2e8f0;">
+                                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #0057ff;">🎨 Behance 1400px Showcase Board</td>
+                                    <td style="padding: 0.75rem 1rem; color: #64748b;">Full visual presentation board formatted to Behance dimensions with embedded screenshots, metrics, and quotes.</td>
+                                    <td style="padding: 0.75rem 1rem; text-align: right;">
+                                        <a href="behance_showcase_1400px.html" target="_blank" class="btn btn-secondary btn-sm" style="font-size: 0.75rem; text-decoration: none; border-color: #0057ff; color: #0057ff;">Open Behance Showcase</a>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e2e8f0; background: #fafafa;">
+                                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #0f172a;">📝 Behance Markdown Blueprint</td>
+                                    <td style="padding: 0.75rem 1rem; color: #64748b;">Exhaustive case study narrative formatted for Behance project publication.</td>
+                                    <td style="padding: 0.75rem 1rem; text-align: right;">
+                                        <a href="BEHANCE_BLUEPRINT.md" target="_blank" class="btn btn-secondary btn-sm" style="font-size: 0.75rem; text-decoration: none;">Read Behance Blueprint</a>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e2e8f0;">
+                                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #0f172a;">📋 Behance Metadata & Tags</td>
+                                    <td style="padding: 0.75rem 1rem; color: #64748b;">Copy-paste project title, summary, creative fields, tags, and publishing steps.</td>
+                                    <td style="padding: 0.75rem 1rem; text-align: right;">
+                                        <a href="BEHANCE_METADATA.md" target="_blank" class="btn btn-secondary btn-sm" style="font-size: 0.75rem; text-decoration: none;">Read Behance Metadata</a>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e2e8f0; background: #fafafa;">
+                                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #059669;">🧪 Usability Testing Report (25%)</td>
+                                    <td style="padding: 0.75rem 1rem; color: #64748b;">Think-aloud testing logs across 5 campus stakeholders and 10 Nielsen Heuristics evaluation.</td>
+                                    <td style="padding: 0.75rem 1rem; text-align: right;">
+                                        <a href="USABILITY_TESTING_REPORT.md" target="_blank" class="btn btn-secondary btn-sm" style="font-size: 0.75rem; text-decoration: none; border-color: #10b981; color: #059669;">Read Usability Report</a>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e2e8f0;">
+                                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #d97706;">👥 Peer Benchmarking Report (25%)</td>
+                                    <td style="padding: 0.75rem 1rem; color: #64748b;">Comparative analysis against 3 classmates (Kunal/Ganesh, Prasad, Neermay).</td>
+                                    <td style="padding: 0.75rem 1rem; text-align: right;">
+                                        <a href="PEER_BENCHMARKING_REPORT.md" target="_blank" class="btn btn-secondary btn-sm" style="font-size: 0.75rem; text-decoration: none; border-color: #f59e0b; color: #d97706;">Read Peer Benchmarking</a>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e2e8f0; background: #fafafa;">
+                                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #7c3aed;">📑 Mid-Term Research Case Study</td>
+                                    <td style="padding: 0.75rem 1rem; color: #64748b;">Original academic paper covering Personas, Empathy Map, Card Sort, and IA Trees V1/V2.</td>
+                                    <td style="padding: 0.75rem 1rem; text-align: right;">
+                                        <a href="MIDTERM_RESEARCH_CASE_STUDY.md" target="_blank" class="btn btn-secondary btn-sm" style="font-size: 0.75rem; text-decoration: none; border-color: #8b5cf6; color: #7c3aed;">Read Research Paper</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #475569;">📐 Figma Design Source</td>
+                                    <td style="padding: 0.75rem 1rem; color: #64748b;">Original UI wireframes and interactive flows documented with full visual tokens.</td>
+                                    <td style="padding: 0.75rem 1rem; text-align: right;">
+                                        <a href="MIDTERM_RESEARCH_CASE_STUDY.md#5-information-architecture-evolution-from-v1-to-v2" target="_blank" class="btn btn-secondary btn-sm" style="font-size: 0.75rem; text-decoration: none;">View Figma Specs</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mt-4 pt-3 text-right" style="border-top: 1px solid #e2e8f0;">
+                        <button class="btn btn-secondary" onclick="closeProfessorChecklistModal()">Close Modal</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+};
+
+window.closeProfessorChecklistModal = function(e) {
+    if (e && e.target !== e.currentTarget) return;
+    const modalContainer = document.getElementById('modal-container');
+    if (modalContainer) modalContainer.innerHTML = '';
 };
 
 // ---------------- INIT APP ----------------

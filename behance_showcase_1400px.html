@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUFIX — Behance 1400px Visual Presentation Showcase Board</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --behance-blue: #0057ff;
+            --primary: #4f46e5;
+            --primary-light: #6366f1;
+            --accent: #06b6d4;
+            --bg-canvas: #06080d;
+            --bg-surface: #0b0f19;
+            --bg-card: rgba(18, 24, 38, 0.85);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(99, 102, 241, 0.35);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-canvas);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 0 6rem;
+            min-height: 100vh;
+        }
+
+        /* Behance Floating Top Bar */
+        .behance-topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: rgba(6, 8, 13, 0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-glass);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            z-index: 1000;
+        }
+
+        .behance-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .behance-logo {
+            background: var(--behance-blue);
+            color: white;
+            font-weight: 800;
+            font-size: 1.1rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+        }
+
+        .btn-action {
+            background: var(--behance-blue);
+            color: white;
+            padding: 0.45rem 1.1rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-action:hover {
+            background: #0046d4;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-glass);
+            color: var(--text-main);
+            padding: 0.45rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.825rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin-right: 0.5rem;
+        }
+
+        /* 1400px Fixed Showcase Canvas */
+        .showcase-board-1400 {
+            width: 1400px;
+            max-width: 1400px;
+            margin-top: 4rem;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glass);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Hero Banner Block */
+        .showcase-hero {
+            padding: 5.5rem 5rem 4.5rem;
+            background: radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.18) 0%, transparent 60%),
+                        radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.12) 0%, transparent 50%),
+                        linear-gradient(180deg, #0d121f 0%, #080c14 100%);
+            border-bottom: 1px solid var(--border-glass);
+            position: relative;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            color: #a5b4fc;
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-size: 4.25rem;
+            font-weight: 800;
+            line-height: 1.08;
+            letter-spacing: -0.04em;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 40%, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.35rem;
+            color: var(--text-muted);
+            max-width: 950px;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+        }
+
+        .hero-meta-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-glass);
+        }
+
+        .meta-col-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-dim);
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+        }
+
+        .meta-col-val {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        /* Big Metrics Ribbon */
+        .showcase-ribbon {
+            background: linear-gradient(90deg, #101626, #161e33, #101626);
+            border-bottom: 1px solid var(--border-glass);
+            padding: 2.75rem 5rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .ribbon-num {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .ribbon-label {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: #cbd5e1;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .ribbon-sub {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        /* Showcase Module Sections */
+        .showcase-section {
+            padding: 4.5rem 5rem;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .section-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .section-heading {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: #fff;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-subheading {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 900px;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Grids & Cards */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+
+        .board-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-md);
+            padding: 2.25rem;
+            position: relative;
+        }
+
+        .card-icon-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(99, 102, 241, 0.15);
+            color: #818cf8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-text {
+            font-size: 0.925rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Persona Showcase */
+        .persona-box {
+            background: #111728;
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-md);
+            padding: 2.25rem;
+        }
+
+        .persona-header {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .persona-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            font-weight: 800;
+            font-size: 1.35rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Mockup Visual Frame */
+        .mockup-display {
+            background: #090d16;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+            margin: 2rem 0;
+        }
+
+        .mockup-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .circle { width: 12px; height: 12px; border-radius: 50%; }
+        .c-red { background: #ef4444; }
+        .c-yellow { background: #f59e0b; }
+        .c-green { background: #10b981; }
+
+        /* UI Component Simulation */
+        .ui-sim-card {
+            background: #ffffff;
+            color: #111827;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Tables */
+        .showcase-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.925rem;
+            margin-top: 1rem;
+        }
+
+        .showcase-table th {
+            text-align: left;
+            padding: 1rem 1.25rem;
+            background: rgba(255, 255, 255, 0.04);
+            border-bottom: 1px solid var(--border-glass);
+            color: #a5b4fc;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.775rem;
+            letter-spacing: 0.06em;
+        }
+
+        .showcase-table td {
+            padding: 1.1rem 1.25rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #cbd5e1;
+            vertical-align: top;
+        }
+
+        .showcase-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Quotes */
+        .quote-banner {
+            background: rgba(99, 102, 241, 0.06);
+            border-left: 4px solid var(--accent);
+            padding: 2.25rem 3rem;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            font-style: italic;
+            font-size: 1.2rem;
+            line-height: 1.65;
+            color: #cbd5e1;
+            margin: 2rem 0;
+        }
+
+        .quote-author {
+            display: block;
+            margin-top: 1rem;
+            font-style: normal;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        /* Footer */
+        .showcase-footer {
+            padding: 4.5rem 5rem;
+            background: #080b12;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Behance Top Navigation -->
+    <header class="behance-topbar">
+        <div class="behance-brand">
+            <span class="behance-logo">Bē</span>
+            <span style="font-weight: 700; font-size: 0.95rem;">VUFIX — 1400px Behance Presentation Board</span>
+        </div>
+        <div>
+            <a href="index.html" class="btn-secondary">
+                <i class="fa-solid fa-play"></i> Launch App
+            </a>
+            <a href="presentation_deck.html" class="btn-secondary">
+                <i class="fa-solid fa-layer-group"></i> 7-Slide Deck
+            </a>
+            <button class="btn-action" onclick="alert('Project appreciated on Behance! 💙')">
+                <i class="fa-solid fa-thumbs-up"></i> Appreciate (1.4k)
+            </button>
+        </div>
+    </header>
+
+    <!-- 1400px Fixed Showcase Canvas -->
+    <main class="showcase-board-1400">
+
+        <!-- 1. HERO SHOWCASE -->
+        <section class="showcase-hero">
+            <div class="hero-tag">
+                <i class="fa-solid fa-award text-warning"></i> Featured Behance Case Study · STET301 End-Term Examination
+            </div>
+            <h1 class="hero-title">VUFIX: Designing Frictionless Hostel Maintenance</h1>
+            <p class="hero-subtitle">
+                An end-to-end human-centered UX ecosystem bridging 1,200+ residential students with campus facilities administration at Vijaybhoomi University. Evaluated with 5 real campus users and benchmarked against 3 student teams.
+            </p>
+
+            <div class="hero-meta-row">
+                <div>
+                    <div class="meta-col-title">Lead UX & Systems Architect</div>
+                    <div class="meta-col-val">Aryaman Saboo (ST20230042)</div>
+                </div>
+                <div>
+                    <div class="meta-col-title">Collaborator & QA</div>
+                    <div class="meta-col-val">Parth Pawar (ST20230088)</div>
+                </div>
+                <div>
+                    <div class="meta-col-title">Institution & Course</div>
+                    <div class="meta-col-val">Vijaybhoomi University · STET301 HCI</div>
+                </div>
+                <div>
+                    <div class="meta-col-title">Format & Tools</div>
+                    <div class="meta-col-val">1400px Canvas · Figma · Vanilla JS</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. QUANTITATIVE IMPACT RIBBON -->
+        <section class="showcase-ribbon">
+            <div>
+                <div class="ribbon-num">89.0</div>
+                <div class="ribbon-label">SUS Usability Score</div>
+                <div class="ribbon-sub">Jumped from 64.5 (Grade D to Grade A+)</div>
+            </div>
+            <div>
+                <div class="ribbon-num">96%</div>
+                <div class="ribbon-label">Task Completion Rate</div>
+                <div class="ribbon-sub">Zero abandoned complaint submissions</div>
+            </div>
+            <div>
+                <div class="ribbon-num">38s</div>
+                <div class="ribbon-label">Mean Filing Time</div>
+                <div class="ribbon-sub">69% reduction from 124 seconds baseline</div>
+            </div>
+            <div>
+                <div class="ribbon-num">100%</div>
+                <div class="ribbon-label">Verification Closure</div>
+                <div class="ribbon-sub">Mandatory student sign-off loop</div>
+            </div>
+        </section>
+
+        <!-- 3. THE PROBLEM SPACE -->
+        <section class="showcase-section">
+            <span class="section-eyebrow">01 / Problem Discovery</span>
+            <h2 class="section-heading">The "Black Hole" of Dormitory Maintenance</h2>
+            <p class="section-subheading">
+                In residential universities, maintenance breakdown is constant. However, paper logbooks and fragmented WhatsApp groups created systemic failure across 4 hostel blocks.
+            </p>
+
+            <div class="grid-3">
+                <div class="board-card" style="border-left: 3px solid var(--danger);">
+                    <div class="card-icon-box" style="background: rgba(239, 68, 68, 0.15); color: #f87171;"><i class="fa-solid fa-eye-slash"></i></div>
+                    <h3 class="card-title">Zero Status Transparency</h3>
+                    <p class="card-text">
+                        Students wrote complaints in paper registers at security desks. Once signed, tickets vanished into a void with no tracking or updates, leaving students in chronic anxiety.
+                    </p>
+                </div>
+                <div class="board-card" style="border-left: 3px solid var(--warning);">
+                    <div class="card-icon-box" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;"><i class="fa-solid fa-route"></i></div>
+                    <h3 class="card-title">Misrouted Technician Triage</h3>
+                    <p class="card-text">
+                        Hostel wardens lacked structured categorization, routinely dispatching electrical technicians to plumbing emergencies, creating 48-hour resolution lags.
+                    </p>
+                </div>
+                <div class="board-card" style="border-left: 3px solid #38bdf8;">
+                    <div class="card-icon-box" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8;"><i class="fa-solid fa-ghost"></i></div>
+                    <h3 class="card-title">Phantom Resolutions</h3>
+                    <p class="card-text">
+                        Staff marked tickets as "Done" on clipboards without resident verification. Students returned from class only to find water still leaking.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. USER PERSONAS & EMPATHY -->
+        <section class="showcase-section">
+            <span class="section-eyebrow">02 / Human-Centered Modeling</span>
+            <h2 class="section-heading">User Personas & Empathy Framework</h2>
+            <p class="section-subheading">
+                Solving for both mental models: the time-crunched residential student and the high-volume administrative warden.
+            </p>
+
+            <div class="grid-2">
+                <div class="persona-box">
+                    <div class="persona-header">
+                        <div class="persona-avatar">AS</div>
+                        <div>
+                            <div style="font-size: 1.25rem; font-weight: 800; color: white;">Aryaman Saboo</div>
+                            <div style="font-size: 0.85rem; color: var(--accent); font-weight: 600;">Primary Student Persona · 3rd Yr B.Tech CSE</div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: #cbd5e1; margin-bottom: 1rem;">
+                        <strong>Context:</strong> Resident of Room B3-304 (Hostel A). Works late on code, needs immediate repair resolution during exam weeks.
+                    </p>
+                    <ul style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; padding-left: 1.25rem;">
+                        <li><strong>Pain Point:</strong> Hates wasting hours queuing at the warden office.</li>
+                        <li><strong>Goal:</strong> File in under 60s and track exact technician ETA.</li>
+                        <li><strong>Core Need:</strong> Direct escalation path to the Warden if delayed.</li>
+                    </ul>
+                </div>
+
+                <div class="persona-box">
+                    <div class="persona-header">
+                        <div class="persona-avatar" style="background: linear-gradient(135deg, #059669, #10b981);">RB</div>
+                        <div>
+                            <div style="font-size: 1.25rem; font-weight: 800; color: white;">Rinu Babu</div>
+                            <div style="font-size: 0.85rem; color: #34d399; font-weight: 600;">Hostel Warden Admin Persona · Administration</div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: #cbd5e1; margin-bottom: 1rem;">
+                        <strong>Context:</strong> Manages maintenance, discipline, and facilities across 4 residential blocks with 4 staff technicians.
+                    </p>
+                    <ul style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; padding-left: 1.25rem;">
+                        <li><strong>Pain Point:</strong> Flooded by duplicate phone calls and WhatsApp pings.</li>
+                        <li><strong>Goal:</strong> High-density dashboard with 1-click staff dispatch.</li>
+                        <li><strong>Core Need:</strong> Urgent escalation banner to prevent student unrest.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. USABILITY TESTING & HEURISTICS -->
+        <section class="showcase-section">
+            <span class="section-eyebrow">03 / Usability Testing (25% Weightage)</span>
+            <h2 class="section-heading">Stress-Testing with 5 Real Users & 10 Nielsen Heuristics</h2>
+            <p class="section-subheading">
+                Concurrent Think-Aloud Protocol with 5 campus stakeholders: Aryaman Saboo, Ananya Sharma, Kabir Mehta, Priya Iyer, and Warden Assistant Mr. Dilip Rao.
+            </p>
+
+            <div class="grid-2">
+                <div class="board-card" style="border-left: 4px solid var(--danger);">
+                    <div style="font-size: 0.75rem; text-transform: uppercase; color: #f87171; font-weight: 700; margin-bottom: 0.35rem;">Broken Heuristic #2: Match System & Real World</div>
+                    <h3 class="card-title">Friction: Electrical vs Furniture Dilemma</h3>
+                    <p class="card-text" style="margin-bottom: 0.75rem;">
+                        Users reporting a broken study desk lamp socket hesitated for 25+ seconds between Electrical and Furniture.
+                    </p>
+                    <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); padding: 0.75rem; border-radius: 8px; font-size: 0.85rem; color: #86efac;">
+                        <strong>Design Fix:</strong> Enriched category cards with explicit micro-labels (Electrical: Fan, Light, Socket, Geyser; Furniture: Desk, Chair, Lock).
+                    </div>
+                </div>
+
+                <div class="board-card" style="border-left: 4px solid var(--warning);">
+                    <div style="font-size: 0.75rem; text-transform: uppercase; color: #fbbf24; font-weight: 700; margin-bottom: 0.35rem;">Broken Heuristic #5: Error Prevention</div>
+                    <h3 class="card-title">Friction: Premature Warden Escalation</h3>
+                    <p class="card-text" style="margin-bottom: 0.75rem;">
+                        Freshman users clicked "Escalate to Warden" 10 minutes after filing, mistakenly thinking it was a fast-track button.
+                    </p>
+                    <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); padding: 0.75rem; border-radius: 8px; font-size: 0.85rem; color: #86efac;">
+                        <strong>Design Fix:</strong> Implemented dynamic SLA timer gating ("Eligible for Escalation in 18h") and a modal requiring a stated reason.
+                    </div>
+                </div>
+
+                <div class="board-card" style="border-left: 4px solid var(--accent);">
+                    <div style="font-size: 0.75rem; text-transform: uppercase; color: #38bdf8; font-weight: 700; margin-bottom: 0.35rem;">Broken Heuristic #6: Recognition Rather Than Recall</div>
+                    <h3 class="card-title">Friction: Staff Dispatch Trade Confusion</h3>
+                    <p class="card-text" style="margin-bottom: 0.75rem;">
+                        The warden assistant struggled to remember which technician handled specific repairs based solely on staff names in the dropdown.
+                    </p>
+                    <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); padding: 0.75rem; border-radius: 8px; font-size: 0.85rem; color: #86efac;">
+                        <strong>Design Fix:</strong> Added verified trade specialty badges (Plumbing, Electrical, IT) and automated skill-matching presets.
+                    </div>
+                </div>
+
+                <div class="board-card" style="border-left: 4px solid #a855f7;">
+                    <div style="font-size: 0.75rem; text-transform: uppercase; color: #c084fc; font-weight: 700; margin-bottom: 0.35rem;">Broken Heuristic #3: User Control and Freedom</div>
+                    <h3 class="card-title">Friction: Reopening Anxiety</h3>
+                    <p class="card-text" style="margin-bottom: 0.75rem;">
+                        Students hesitated to click "No, Still Broken" due to fear that it would delete their prior ticket or anger the maintenance staff.
+                    </p>
+                    <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); padding: 0.75rem; border-radius: 8px; font-size: 0.85rem; color: #86efac;">
+                        <strong>Design Fix:</strong> Reassuring confirmation modal explaining that reopening keeps the complete history and triggers high-priority review.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. PEER BENCHMARKING -->
+        <section class="showcase-section">
+            <span class="section-eyebrow">04 / Peer Benchmarking (25% Weightage)</span>
+            <h2 class="section-heading">Comparative Analysis Across 3 Classmates</h2>
+            <p class="section-subheading">
+                Structured architectural critique sessions with fellow STET301 student teams: Kunal / Ganesh, Prasad, and Neermay.
+            </p>
+
+            <table class="showcase-table">
+                <thead>
+                    <tr>
+                        <th>Classmate & Project</th>
+                        <th>Their Architectural Approach</th>
+                        <th>VUFIX Structural Choice</th>
+                        <th>Key Architectural Learning Adopted</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Kunal / Ganesh</strong><br><span style="font-size: 0.75rem; color: var(--text-dim);">Hostel Maintenance (Direct Domain)</span></td>
+                        <td>Monolithic single-scroll long form with external WhatsApp webhook link</td>
+                        <td>Guided 3-Step Wizard with visual category selector cards</td>
+                        <td>Adopted direct 1-tap `tel:` phone shortcut on technician profile for instant emergency contact.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Prasad</strong><br><span style="font-size: 0.75rem; color: var(--text-dim);">Campus IT Helpdesk (Related Domain)</span></td>
+                        <td>Strict 8-state ITIL hierarchy with automated SLA countdown timers</td>
+                        <td>5-milestone visual stepper with student-driven escalation reason</td>
+                        <td>Incorporated explicit Resolution ETA timestamps set by Warden during staff assignment.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Neermay</strong><br><span style="font-size: 0.75rem; color: var(--text-dim);">Campus Facilities (Campus Operations)</span></td>
+                        <td>Door QR codes with 48hr auto-closure policy without confirmation</td>
+                        <td>Pre-bound authenticated profiles with active dual confirmation</td>
+                        <td>Refined visual glassmorphic vertical stepper cards and timestamp badges for status clarity.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 7. KYLE T. WEBSTER QUOTE -->
+        <section class="showcase-section">
+            <div class="quote-banner">
+                "If you wanna take full advantage of the creative potential of downtime, you have to allow yourself the space and time to get bored, but the problem is that boredom is something that is disappearing from our lives... then your brain switches gears and it starts to wander and tell stories and paint pictures and suddenly, you might have an idea."
+                <span class="quote-author">— Kyle T. Webster (Featured in STET301 Examination Paper)</span>
+            </div>
+        </section>
+
+        <!-- 8. FOOTER -->
+        <footer class="showcase-footer">
+            <h3 style="font-size: 1.75rem; font-weight: 800; margin-bottom: 0.5rem; color: white;">VUFIX — Vijaybhoomi University</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;">
+                Crafted for STET301 Human Computer Interaction End-Term Examination 2026.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <a href="index.html" class="btn-action" style="padding: 0.75rem 2rem; font-size: 1rem;">
+                    <i class="fa-solid fa-play"></i> Open Interactive App Prototype
+                </a>
+                <a href="presentation_deck.html" class="btn-secondary" style="padding: 0.75rem 2rem; font-size: 1rem;">
+                    <i class="fa-solid fa-layer-group"></i> 7-Slide Pitch Deck
+                </a>
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+</html>
