@@ -94,9 +94,8 @@ npx serve .
 ```
 
 Then visit:
-- **Main App**: [http://localhost:8080/index.html](http://localhost:8080/index.html)
-- **Standalone Version**: [http://localhost:8080/single_page_app.html](http://localhost:8080/single_page_app.html)
-
+- **Main App**: http://localhost:8000/single_page_app.html
+- **Standalone App**: http://localhost:8000/single_page_app.html
 ---
 
 ## 👤 Pre-Configured Demo Accounts
