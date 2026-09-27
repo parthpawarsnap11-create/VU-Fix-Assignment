@@ -28,7 +28,7 @@ This document contains all active local server URLs, ports, local file paths, an
 
 ### 1. Primary Student Account
 - **Name**: Aryaman Saboo
-- **Roll No**: `ST20230042`
+- **Roll No**: `2024VUGP0039`
 - **Email**: `aryaman.saboo@vijaybhoomi.edu.in`
 - **Hostel & Room**: Hostel A, Block B3, Room B3-304
 - **Avatar**: `AS`
@@ -42,7 +42,7 @@ This document contains all active local server URLs, ports, local file paths, an
 
 ### 3. Secondary Student Account
 - **Name**: Parth Pawar
-- **Roll No**: `ST20230088`
+- **Roll No**: `2024VUGP0021`
 - **Email**: `parth.pawar@vijaybhoomi.edu.in`
 - **Hostel & Room**: Hostel A, Block A1, Room A1-101
 - **Avatar**: `PP`

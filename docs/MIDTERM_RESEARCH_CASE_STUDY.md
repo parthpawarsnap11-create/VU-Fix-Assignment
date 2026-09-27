@@ -2,7 +2,7 @@
 **Course**: STET301 — Human Computer Interaction  
 **Institution**: Vijaybhoomi School of Science & Technology, Vijaybhoomi University  
 **Project**: VUFIX — Hostel Maintenance & Management Portal  
-**Authors**: Aryaman Saboo (ST20230042) & Parth Pawar (ST20230088)  
+**Authors**: Aryaman Saboo (2024VUGP0039) & Parth Pawar (2024VUGP0021)  
 **Academic Focus**: Personas, Empathy Maps, Card Sorting Studies, and IA Architecture Evolution (V1 vs V2)  
 **Session**: Academic Year 2026  
 

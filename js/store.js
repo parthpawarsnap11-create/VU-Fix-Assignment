@@ -3,7 +3,7 @@
 const defaultData = {
     users: {
         student: { 
-            id: 'ST20230042', 
+            id: '2024VUGP0039', 
             name: 'Aryaman Saboo', 
             role: 'student', 
             hostel: 'Hostel A', 
@@ -13,7 +13,7 @@ const defaultData = {
             avatar: 'AS' 
         },
         student2: { 
-            id: 'ST20230088', 
+            id: '2024VUGP0021', 
             name: 'Parth Pawar', 
             role: 'student', 
             hostel: 'Hostel A', 
@@ -56,7 +56,7 @@ const defaultData = {
             escalatedReason: 'Delay of over 48 hours without technician visit.',
             expectedResolution: '2026-09-22',
             assignedTo: 'Sunita Devi',
-            studentId: 'ST20230042',
+            studentId: '2024VUGP0039',
             studentName: 'Aryaman Saboo',
             createdAt: '2026-09-18T09:30:00',
             updatedAt: '2026-09-20T14:10:00',
@@ -77,7 +77,7 @@ const defaultData = {
             status: 'In Progress',
             expectedResolution: '2026-09-21',
             assignedTo: 'Suresh Sharma',
-            studentId: 'ST20230042',
+            studentId: '2024VUGP0039',
             studentName: 'Aryaman Saboo',
             createdAt: '2026-09-19T10:30:00',
             updatedAt: '2026-09-20T13:15:00',
@@ -99,7 +99,7 @@ const defaultData = {
             status: 'Assigned',
             expectedResolution: '2026-09-22',
             assignedTo: 'Ramesh Kumar',
-            studentId: 'ST20230042',
+            studentId: '2024VUGP0039',
             studentName: 'Aryaman Saboo',
             createdAt: '2026-09-20T08:00:00',
             updatedAt: '2026-09-20T09:00:00',
@@ -119,7 +119,7 @@ const defaultData = {
             status: 'Resolved',
             expectedResolution: '2026-09-17',
             assignedTo: 'Vikas Patil',
-            studentId: 'ST20230042',
+            studentId: '2024VUGP0039',
             studentName: 'Aryaman Saboo',
             createdAt: '2026-09-15T10:00:00',
             updatedAt: '2026-09-17T14:00:00',
@@ -140,7 +140,7 @@ const defaultData = {
             status: 'Closed',
             expectedResolution: '2026-09-10',
             assignedTo: 'Ramesh Kumar',
-            studentId: 'ST20230088',
+            studentId: '2024VUGP0021',
             studentName: 'Parth Pawar',
             createdAt: '2026-09-09T09:00:00',
             updatedAt: '2026-09-10T11:00:00',
@@ -162,8 +162,8 @@ function initStore() {
     } else {
         try {
             const parsed = JSON.parse(existing);
-            // Upgrade mock schema if missing technicians or student is not Aryaman Saboo
-            if (!parsed.technicians || !parsed.users.student || parsed.users.student.name !== 'Aryaman Saboo') {
+            // Upgrade mock schema if missing technicians, student is not Aryaman Saboo, or ID is outdated
+            if (!parsed.technicians || !parsed.users.student || parsed.users.student.name !== 'Aryaman Saboo' || parsed.users.student.id !== '2024VUGP0039') {
                 localStorage.setItem('hostel_data', JSON.stringify(defaultData));
             }
         } catch (e) {

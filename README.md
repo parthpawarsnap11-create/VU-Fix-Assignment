@@ -103,7 +103,7 @@ Then visit:
 
 1. **Student Account (Primary)**:
    - **Name**: Aryaman Saboo
-   - **Roll No**: `ST20230042`
+   - **Roll No**: `2024VUGP0039`
    - **Email**: `aryaman.saboo@vijaybhoomi.edu.in`
    - **Room**: `B3-304` (`Hostel A`, `Block B3`)
 
@@ -115,6 +115,6 @@ Then visit:
 
 3. **Student Account (Secondary)**:
    - **Name**: Parth Pawar
-   - **Roll No**: `ST20230088`
+   - **Roll No**: `2024VUGP0021`
    - **Email**: `parth.pawar@vijaybhoomi.edu.in`
    - **Room**: `A1-101` (`Hostel A`, `Block A1`)

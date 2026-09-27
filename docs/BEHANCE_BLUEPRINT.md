@@ -1,6 +1,6 @@
 # BEHANCE MARKDOWN BLUEPRINT
 **Case Study Title**: VUFIX — Designing Frictionless Hostel Maintenance & Facilities Management  
-**Authors**: Aryaman Saboo (ST20230042) & Parth Pawar (ST20230088)  
+**Authors**: Aryaman Saboo (2024VUGP0039) & Parth Pawar (2024VUGP0021)  
 **Institution**: Vijaybhoomi University, School of Science & Technology  
 **Course**: STET301 — Human Computer Interaction (End-Term Examination)  
 **Format Target**: Behance Case Study Long-Form Publishing Narrative  

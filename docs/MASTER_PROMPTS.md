@@ -17,12 +17,12 @@ Build a complete, responsive Single-Page Web Application (SPA) named "VUFIX" —
 ### Key Users & Default Profiles
 1. Primary Student Profile:
    - Name: Aryaman Saboo
-   - Roll No: ST20230042
+   - Roll No: 2024VUGP0039
    - Email: aryaman.saboo@vijaybhoomi.edu.in
    - Hostel & Room: Hostel A, Block B3, Room B3-304
    - Avatar: AS
 2. Secondary Student Preset:
-   - Name: Parth Pawar (ST20230088, parth.pawar@vijaybhoomi.edu.in, Room A1-101)
+   - Name: Parth Pawar (2024VUGP0021, parth.pawar@vijaybhoomi.edu.in, Room A1-101)
 3. Hostel Warden / Admin Profile:
    - Name: Rinu Babu
    - Title: Hostel Warden

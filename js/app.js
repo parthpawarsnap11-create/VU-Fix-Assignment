@@ -156,7 +156,7 @@ function renderLogin() {
                     </div>
                     <button type="button" class="quick-fill-btn" onclick="quickLogin('student')">
                         <span>⚡ <strong>Student Login</strong> (Aryaman Saboo)</span>
-                        <span class="text-xs text-muted">ST20230042</span>
+                        <span class="text-xs text-muted">2024VUGP0039</span>
                     </button>
                     <button type="button" class="quick-fill-btn" onclick="quickLogin('admin')">
                         <span>🛡️ <strong>Hostel Warden Login</strong> (Rinu Babu)</span>
@@ -164,7 +164,7 @@ function renderLogin() {
                     </button>
                     <button type="button" class="quick-fill-btn" onclick="quickLogin('student2')">
                         <span>👤 <strong>Student Login</strong> (Parth Pawar)</span>
-                        <span class="text-xs text-muted">ST20230088</span>
+                        <span class="text-xs text-muted">2024VUGP0021</span>
                     </button>
                 </div>
             </div>

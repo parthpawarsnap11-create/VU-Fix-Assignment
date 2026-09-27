@@ -2,6 +2,7 @@
 **Course**: STET301 — Human Computer Interaction  
 **Institution**: Vijaybhoomi School of Science & Technology, Vijaybhoomi University  
 **Project**: VUFIX — Hostel Maintenance & Management Portal  
+**Authors**: Aryaman Saboo (2024VUGP0039) & Parth Pawar (2024VUGP0021)  
 **Evaluation Criteria**: Usability Testing & Analysis (25% Weightage / 10 Marks)  
 **Date**: September 2026  
 

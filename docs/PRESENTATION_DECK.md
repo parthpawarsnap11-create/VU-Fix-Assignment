@@ -1,8 +1,8 @@
 # 5-MINUTE PRESENTATION SLIDE DECK & SPEAKER SCRIPT
 **Course**: STET301 — Human Computer Interaction (End-Term Examination)  
 **Project**: VUFIX — Hostel Maintenance & Management Portal  
-**Student Name**: Aryaman Saboo (Roll No: ST20230042)  
-**Secondary Contributor**: Parth Pawar (Roll No: ST20230088)  
+**Student Name**: Aryaman Saboo (Roll No: 2024VUGP0039)  
+**Secondary Contributor**: Parth Pawar (Roll No: 2024VUGP0021)  
 **Institution**: Vijaybhoomi School of Science & Technology, Vijaybhoomi University  
 **Rubric Component**: 5-Minute Presentation (25% Weightage / 10 Marks)  
 **Duration**: Exactly 5 Minutes (300 Seconds)  
@@ -35,7 +35,7 @@
 - **Slide Header**: STET301 · Human Computer Interaction · End-Term Examination
 - **Slide Title**: VUFIX — Designing Frictionless Hostel Maintenance & Management
 - **Key Visual Elements**:
-  - Presenter badge: Aryaman Saboo (ST20230042), B.Tech CSE, Vijaybhoomi University.
+  - Presenter badge: Aryaman Saboo (2024VUGP0039), B.Tech CSE, Vijaybhoomi University.
   - Evaluation rubric mapping: Usability Testing (25%), Peer Benchmarking (25%), 5-Min Presentation (25%), Behance Case Study (25%).
   - Core tech stack icons: Vanilla HTML5/JS ES6+, LocalStorage Reactive Store, CSS Design Tokens.
 - **Verbatim Speaker Script (30 seconds)**:

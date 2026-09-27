@@ -1,6 +1,6 @@
 # BEHANCE METADATA, TAGS & PUBLISHING GUIDE
 **Project**: VUFIX — Hostel Maintenance & Management Portal  
-**Authors**: Aryaman Saboo (ST20230042) & Parth Pawar (ST20230088)  
+**Authors**: Aryaman Saboo (2024VUGP0039) & Parth Pawar (2024VUGP0021)  
 **Course**: STET301 — Human Computer Interaction (End-Term Examination)  
 **Institution**: Vijaybhoomi School of Science & Technology, Vijaybhoomi University  
 

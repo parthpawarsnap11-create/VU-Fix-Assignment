@@ -2,8 +2,8 @@
 **Course Name**: Human Computer Interaction (STET301)  
 **School**: Vijaybhoomi School of Science & Technology, Vijaybhoomi University  
 **Examination Session**: September 2026  
-**Candidate Name**: Aryaman Saboo (Roll No: ST20230042)  
-**Collaborator**: Parth Pawar (Roll No: ST20230088)  
+**Candidate Name**: Aryaman Saboo (Roll No: 2024VUGP0039)  
+**Collaborator**: Parth Pawar (Roll No: 2024VUGP0021)  
 **Maximum Marks**: 40 Marks (Course Outcomes: CO1, CO2, CO3, CO4, CO5)  
 **Project Name**: **VUFIX — Hostel Maintenance & Management Portal**  
 
