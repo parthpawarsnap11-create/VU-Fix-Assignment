@@ -8,15 +8,15 @@
 
 | Deliverable | Description | Direct Link |
 | :--- | :--- | :--- |
-| 📱 **Live Production Web App** | Fully interactive hostel maintenance portal with 3-step wizard, status tracking, filters, and role switcher. | [Launch VUFIX App](file:///c:/Users/umach/OneDrive/Desktop/vu_fix/index.html) |
-| 📊 **5-Minute Presentation Deck** | 7-slide 16:9 presentation deck pre-formatted with pitch cues, timer, and 1-click PDF export. | [Open Presentation Deck](file:///c:/Users/umach/OneDrive/Desktop/vu_fix/presentation_deck.html) |
-| 🎨 **Behance 1400px Showcase Board** | Full visual presentation board formatted to Behance dimensions with embedded screenshots, metrics, and quotes. | [Open Behance Showcase](file:///c:/Users/umach/OneDrive/Desktop/vu_fix/behance_showcase_1400px.html) |
-| 📝 **Behance Markdown Blueprint** | Exhaustive case study narrative formatted for Behance project publication. | [Read Behance Blueprint](file:///c:/Users/umach/OneDrive/Desktop/vu_fix/BEHANCE_BLUEPRINT.md) |
-| 📋 **Behance Metadata & Tags** | Copy-paste project title, summary, creative fields, tags, and publishing steps. | [Read Behance Metadata](file:///c:/Users/umach/OneDrive/Desktop/vu_fix/BEHANCE_METADATA.md) |
-| 🧪 **Usability Testing Report (25%)** | Think-aloud testing logs across 5 campus stakeholders and 10 Nielsen Heuristics evaluation. | [Read Usability Report](file:///c:/Users/umach/OneDrive/Desktop/vu_fix/USABILITY_TESTING_REPORT.md) |
-| 👥 **Peer Benchmarking Report (25%)** | Comparative analysis against 3 classmates (Kunal/Ganesh, Prasad, Neermay). | [Read Peer Benchmarking](file:///c:/Users/umach/OneDrive/Desktop/vu_fix/PEER_BENCHMARKING_REPORT.md) |
-| 📑 **Mid-Term Research Case Study** | Original academic paper covering Personas, Empathy Map, Card Sort, and IA Trees V1/V2. | [Read Research Paper](file:///c:/Users/umach/OneDrive/Desktop/vu_fix/MIDTERM_RESEARCH_CASE_STUDY.md) |
-| 📐 **Figma Design Source** | Original UI wireframes and interactive flows. | [View Design Source Specs](file:///c:/Users/umach/OneDrive/Desktop/vu_fix/MIDTERM_RESEARCH_CASE_STUDY.md#5-information-architecture-evolution-from-v1-to-v2) |
+| 📱 **Live Production Web App** | Fully interactive hostel maintenance portal with 3-step wizard, status tracking, filters, and role switcher. | [Launch VUFIX App](index.html) |
+| 📊 **5-Minute Presentation Deck** | 7-slide 16:9 presentation deck pre-formatted with pitch cues, timer, and 1-click PDF export. | [Open Presentation Deck](presentation/presentation_deck.html) |
+| 🎨 **Behance 1400px Showcase Board** | Full visual presentation board formatted to Behance dimensions with embedded screenshots, metrics, and quotes. | [Open Behance Showcase](showcase/behance_showcase_1400px.html) |
+| 📝 **Behance Markdown Blueprint** | Exhaustive case study narrative formatted for Behance project publication. | [Read Behance Blueprint](docs/BEHANCE_BLUEPRINT.md) |
+| 📋 **Behance Metadata & Tags** | Copy-paste project title, summary, creative fields, tags, and publishing steps. | [Read Behance Metadata](docs/BEHANCE_METADATA.md) |
+| 🧪 **Usability Testing Report (25%)** | Think-aloud testing logs across 5 campus stakeholders and 10 Nielsen Heuristics evaluation. | [Read Usability Report](docs/USABILITY_TESTING_REPORT.md) |
+| 👥 **Peer Benchmarking Report (25%)** | Comparative analysis against 3 classmates (Kunal/Ganesh, Prasad, Neermay). | [Read Peer Benchmarking](docs/PEER_BENCHMARKING_REPORT.md) |
+| 📑 **Mid-Term Research Case Study** | Original academic paper covering Personas, Empathy Map, Card Sort, and IA Trees V1/V2. | [Read Research Paper](docs/MIDTERM_RESEARCH_CASE_STUDY.md) |
+| 📐 **Figma Design Source** | Original UI wireframes and interactive flows. | [View Design Source Specs](docs/MIDTERM_RESEARCH_CASE_STUDY.md#5-information-architecture-evolution-from-v1-to-v2) |
 
 ---
 
@@ -38,15 +38,33 @@
 ## 📂 Repository File Structure
 
 ```
-Hostel_Maintenance_App/
-├── index.html            # Main web application entrypoint
-├── single_page_app.html   # Standalone all-in-one HTML bundle
+VU-Fix-Assignment/
+├── index.html                           # Main web application entrypoint
+├── single_page_app.html                 # Standalone all-in-one HTML bundle
+├── README.md                            # Repository documentation & Checklist
 ├── css/
-│   └── style.css         # Modern design tokens, glassmorphism, responsive styles
+│   └── style.css                        # Modern design tokens, glassmorphism, responsive styles
 ├── js/
-│   ├── store.js          # Reactive state store, default identities & localStorage API
-│   └── app.js            # UI rendering engine, Fretbox tabs, Warden modal & routing
-└── README.md             # Repository documentation
+│   ├── store.js                         # Reactive state store, default identities & localStorage API
+│   └── app.js                           # UI rendering engine, Fretbox tabs, Warden modal & routing
+├── docs/                                # All academic documentation & reports
+│   ├── BEHANCE_BLUEPRINT.md             # Exhaustive Behance case study narrative
+│   ├── BEHANCE_METADATA.md              # Behance copy-paste metadata, tags & publishing guide
+│   ├── Behance_Case_Study.md            # Behance case study summary
+│   ├── EXAM_SUBMISSION_DOSSIER.md       # Comprehensive exam submission dossier
+│   ├── MASTER_PROMPTS.md                # System prompts for web & mobile app
+│   ├── MIDTERM_RESEARCH_CASE_STUDY.md   # Academic research paper (Personas, Empathy, Card Sort, IA)
+│   ├── PEER_BENCHMARKING_REPORT.md      # Peer analysis (Kunal/Ganesh, Prasad, Neermay)
+│   ├── PRESENTATION_DECK.md             # Full 5-min speaker script & slide breakdown
+│   ├── Presentation_Slide_Deck.md       # Presentation outline
+│   ├── URL_CONFIG.md                    # Localhost and environment paths
+│   └── USABILITY_TESTING_REPORT.md      # 5 real users testing & Nielsen heuristics audit
+├── presentation/                        # Interactive presentation slide decks
+│   ├── presentation_deck.html           # 7-slide 16:9 interactive presentation with timer & notes
+│   └── Presentation_Slide_Deck.html     # Slide deck view
+└── showcase/                            # Behance visual presentation boards
+    ├── behance_showcase_1400px.html     # Full 1400px fixed-width Behance showcase canvas
+    └── Behance_Case_Study.html          # Behance showcase view
 ```
 
 ---
