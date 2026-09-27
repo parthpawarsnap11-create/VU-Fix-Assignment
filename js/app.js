@@ -60,24 +60,6 @@ function renderLogin() {
                     <p class="text-muted text-sm mt-1">Hostel Maintenance & Complaint Management System</p>
                 </div>
 
-                <!-- STET301 Exam Deliverables Bar -->
-                <div style="background: linear-gradient(135deg, rgba(79, 70, 229, 0.08), rgba(6, 182, 212, 0.08)); border: 1px solid rgba(99, 102, 241, 0.25); border-radius: 10px; padding: 0.75rem 1rem; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap;">
-                    <div style="font-weight: 700; font-size: 0.8rem; color: #4338ca;">
-                        <i class="fa-solid fa-graduation-cap"></i> STET301 Exam Deliverables
-                    </div>
-                    <div class="flex gap-2" style="flex-wrap: wrap;">
-                        <button type="button" class="btn btn-sm" onclick="openProfessorChecklistModal()" style="font-size: 0.75rem; padding: 0.25rem 0.65rem; background: #f59e0b; color: #1e1b4b; font-weight: 700; border: none;">
-                            <i class="fa-solid fa-list-check"></i> Professor's Checklist
-                        </button>
-                        <a href="presentation/presentation_deck.html" target="_blank" class="btn btn-primary btn-sm" style="font-size: 0.75rem; padding: 0.25rem 0.65rem;">
-                            <i class="fa-solid fa-layer-group"></i> 5-Min Deck
-                        </a>
-                        <a href="showcase/behance_showcase_1400px.html" target="_blank" class="btn btn-secondary btn-sm" style="font-size: 0.75rem; padding: 0.25rem 0.65rem; color: #0057ff; border-color: rgba(0, 87, 255, 0.3);">
-                            <i class="fa-brands fa-behance"></i> Behance Board
-                        </a>
-                    </div>
-                </div>
-
                 <!-- Tab Switcher -->
                 <div class="login-tabs">
                     <button class="login-tab-btn ${currentLoginTab === 'student' ? 'active' : ''}" onclick="switchLoginTab('student')">
@@ -249,17 +231,7 @@ function renderLayout(user) {
                             ${user.role === 'admin' ? '🛡️ VUFIX — Warden Management Portal' : '🏫 VUFIX — Student Maintenance Service'}
                         </div>
                     </div>
-                    <div class="flex items-center gap-2">
-                        <button class="btn btn-sm" onclick="openProfessorChecklistModal()" style="font-weight: 700; font-size: 0.8rem; background: #fef3c7; color: #b45309; border: 1px solid #fde68a;">
-                            <i class="fa-solid fa-list-check"></i> <span class="hidden-mobile">Professor's</span> Checklist
-                        </button>
-                        <a href="presentation/presentation_deck.html" target="_blank" class="btn btn-secondary btn-sm" style="font-weight: 600; border-color: #6366f1; color: #4f46e5; text-decoration: none;">
-                            <i class="fa-solid fa-layer-group"></i> <span class="hidden-mobile">5-Min</span> Deck
-                        </a>
-                        <a href="showcase/behance_showcase_1400px.html" target="_blank" class="btn btn-secondary btn-sm" style="font-weight: 600; border-color: #0057ff; color: #0057ff; text-decoration: none;">
-                            <i class="fa-brands fa-behance"></i> <span class="hidden-mobile">Behance</span> Board
-                        </a>
-                    </div>
+
                     <div class="user-menu">
                         <div class="text-right hidden-mobile">
                             <div class="font-bold text-sm">${user.name}</div>
