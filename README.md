@@ -15,7 +15,7 @@
 | 📝 **Behance Markdown Blueprint** | Exhaustive case study narrative formatted for Behance project publication. | [Read Behance Blueprint](docs/BEHANCE_BLUEPRINT.md) |
 | 📋 **Behance Metadata & Tags** | Copy-paste project title, summary, creative fields, tags, and publishing steps. | [Read Behance Metadata](docs/BEHANCE_METADATA.md) |
 | 🧪 **Usability Testing Report (25%)** | Think-aloud testing logs across 5 campus stakeholders and 10 Nielsen Heuristics evaluation. | [Read Usability Report](docs/USABILITY_TESTING_REPORT.md) |
-| 👥 **Peer Benchmarking Report (25%)** | Comparative analysis against 3 classmates (Kunal/Ganesh, Prasad, Neermay). | [Read Peer Benchmarking](docs/PEER_BENCHMARKING_REPORT.md) |
+| 👥 **Peer Benchmarking Report (25%)** | Comparative analysis against 3 classmates (Aryaman Saboo [Same Domain], Prasad, Neermay). | [Read Peer Benchmarking](docs/PEER_BENCHMARKING_REPORT.md) |
 | 📑 **Mid-Term Research Case Study** | Original academic paper covering Personas, Empathy Map, Card Sort, and IA Trees V1/V2. | [Read Research Paper](docs/MIDTERM_RESEARCH_CASE_STUDY.md) |
 | 📐 **Figma Design Source** | Original UI wireframes and interactive flows. | [View Design Source Specs](docs/MIDTERM_RESEARCH_CASE_STUDY.md#5-information-architecture-evolution-from-v1-to-v2) |
 
@@ -62,7 +62,7 @@ VU-Fix-Assignment/
 │   ├── EXAM_SUBMISSION_DOSSIER.md       # Comprehensive exam submission dossier
 │   ├── MASTER_PROMPTS.md                # System prompts for web & mobile app
 │   ├── MIDTERM_RESEARCH_CASE_STUDY.md   # Academic research paper (Personas, Empathy, Card Sort, IA)
-│   ├── PEER_BENCHMARKING_REPORT.md      # Peer analysis (Kunal/Ganesh, Prasad, Neermay)
+│   ├── PEER_BENCHMARKING_REPORT.md      # Peer analysis (Aryaman Saboo [Same Domain], Prasad, Neermay)
 │   ├── PRESENTATION_DECK.md             # Full 5-min speaker script & slide breakdown
 │   ├── Presentation_Slide_Deck.md       # Presentation outline
 │   ├── URL_CONFIG.md                    # Localhost and environment paths

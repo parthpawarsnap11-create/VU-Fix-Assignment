@@ -1138,7 +1138,7 @@ window.openProfessorChecklistModal = function() {
                                 </tr>
                                 <tr style="border-bottom: 1px solid #e2e8f0;">
                                     <td style="padding: 0.75rem 1rem; font-weight: 700; color: #d97706;">👥 Peer Benchmarking Report (25%)</td>
-                                    <td style="padding: 0.75rem 1rem; color: #64748b;">Comparative analysis against 3 classmates (Kunal/Ganesh, Prasad, Neermay).</td>
+                                    <td style="padding: 0.75rem 1rem; color: #64748b;">Comparative analysis against 3 classmates (Aryaman Saboo [Same Domain], Prasad, Neermay).</td>
                                     <td style="padding: 0.75rem 1rem; text-align: right;">
                                         <a href="docs/PEER_BENCHMARKING_REPORT.md" target="_blank" class="btn btn-secondary btn-sm" style="font-size: 0.75rem; text-decoration: none; border-color: #f59e0b; color: #d97706;">Read Peer Benchmarking</a>
                                     </td>
