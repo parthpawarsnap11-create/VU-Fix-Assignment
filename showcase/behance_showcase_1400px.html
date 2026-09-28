@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VUFIX — Behance 1400px Visual Presentation Showcase Board</title>
+    <title>VUFIX — Behance 1400px Case Study & Visual Showcase</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --behance-blue: #0057ff;
             --primary: #4f46e5;
             --primary-light: #6366f1;
+            --primary-glow: rgba(99, 102, 241, 0.4);
             --accent: #06b6d4;
-            --bg-canvas: #06080d;
-            --bg-surface: #0b0f19;
-            --bg-card: rgba(18, 24, 38, 0.85);
+            --accent-glow: rgba(6, 182, 212, 0.35);
+            --bg-canvas: #05070c;
+            --bg-surface: #090d16;
+            --bg-card: rgba(15, 22, 36, 0.85);
+            --bg-card-hover: rgba(22, 32, 54, 0.95);
             --border-glass: rgba(255, 255, 255, 0.08);
             --border-glow: rgba(99, 102, 241, 0.35);
             --text-main: #f8fafc;
@@ -25,6 +28,7 @@
             --success: #10b981;
             --warning: #f59e0b;
             --danger: #ef4444;
+            --radius-sm: 10px;
             --radius-md: 16px;
             --radius-lg: 24px;
         }
@@ -53,13 +57,13 @@
             left: 0;
             width: 100%;
             height: 60px;
-            background: rgba(6, 8, 13, 0.92);
-            backdrop-filter: blur(16px);
+            background: rgba(5, 7, 12, 0.94);
+            backdrop-filter: blur(18px);
             border-bottom: 1px solid var(--border-glass);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 2rem;
+            padding: 0 2.5rem;
             z-index: 1000;
         }
 
@@ -72,16 +76,23 @@
         .behance-logo {
             background: var(--behance-blue);
             color: white;
-            font-weight: 800;
+            font-weight: 900;
             font-size: 1.1rem;
-            padding: 0.2rem 0.6rem;
+            padding: 0.25rem 0.65rem;
             border-radius: 6px;
+            letter-spacing: -0.02em;
+        }
+
+        .behance-project-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #fff;
         }
 
         .btn-action {
             background: var(--behance-blue);
             color: white;
-            padding: 0.45rem 1.1rem;
+            padding: 0.5rem 1.25rem;
             border-radius: 9999px;
             font-size: 0.85rem;
             font-weight: 700;
@@ -89,36 +100,47 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            transition: all 0.2s;
+            transition: all 0.25s ease;
             border: none;
             cursor: pointer;
         }
 
         .btn-action:hover {
             background: #0046d4;
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 87, 255, 0.35);
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.06);
             border: 1px solid var(--border-glass);
             color: var(--text-main);
-            padding: 0.45rem 1rem;
+            padding: 0.5rem 1.1rem;
             border-radius: 9999px;
             font-size: 0.825rem;
             font-weight: 600;
             text-decoration: none;
             margin-right: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: white;
         }
 
         /* 1400px Fixed Showcase Canvas */
         .showcase-board-1400 {
             width: 1400px;
             max-width: 1400px;
-            margin-top: 4rem;
+            margin-top: 4.5rem;
             background: var(--bg-surface);
             border: 1px solid var(--border-glass);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.85);
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -126,10 +148,10 @@
 
         /* Hero Banner Block */
         .showcase-hero {
-            padding: 5.5rem 5rem 4.5rem;
-            background: radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.18) 0%, transparent 60%),
-                        radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.12) 0%, transparent 50%),
-                        linear-gradient(180deg, #0d121f 0%, #080c14 100%);
+            padding: 6rem 5.5rem 5rem;
+            background: radial-gradient(circle at 85% 15%, rgba(99, 102, 241, 0.22) 0%, transparent 55%),
+                        radial-gradient(circle at 15% 85%, rgba(6, 182, 212, 0.16) 0%, transparent 50%),
+                        linear-gradient(180deg, #0d1222 0%, #070a12 100%);
             border-bottom: 1px solid var(--border-glass);
             position: relative;
         }
@@ -139,73 +161,87 @@
             align-items: center;
             gap: 0.5rem;
             background: rgba(99, 102, 241, 0.15);
-            border: 1px solid rgba(99, 102, 241, 0.3);
+            border: 1px solid rgba(99, 102, 241, 0.35);
             color: #a5b4fc;
-            padding: 0.4rem 1rem;
+            padding: 0.45rem 1.25rem;
             border-radius: 9999px;
-            font-size: 0.8rem;
+            font-size: 0.825rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.75rem;
         }
 
         .hero-title {
-            font-size: 4.25rem;
-            font-weight: 800;
-            line-height: 1.08;
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1.05;
             letter-spacing: -0.04em;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #ffffff 40%, #94a3b8);
+            background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero-subtitle {
-            font-size: 1.35rem;
-            color: var(--text-muted);
-            max-width: 950px;
+            font-size: 1.4rem;
+            color: #cbd5e1;
+            max-width: 1000px;
             line-height: 1.6;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .hero-quote {
+            background: rgba(99, 102, 241, 0.08);
+            border-left: 4px solid var(--accent);
+            padding: 1.25rem 2rem;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            font-style: italic;
+            font-size: 1.15rem;
+            color: #cbd5e1;
             margin-bottom: 3rem;
+            max-width: 1050px;
+            line-height: 1.6;
         }
 
         .hero-meta-row {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
-            padding-top: 2rem;
+            padding-top: 2.25rem;
             border-top: 1px solid var(--border-glass);
         }
 
         .meta-col-title {
             font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.08em;
             color: var(--text-dim);
             font-weight: 700;
-            margin-bottom: 0.35rem;
+            margin-bottom: 0.4rem;
         }
 
         .meta-col-val {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: #fff;
         }
 
-        /* Big Metrics Ribbon */
+        /* Quantitative Metrics Ribbon */
         .showcase-ribbon {
-            background: linear-gradient(90deg, #101626, #161e33, #101626);
+            background: linear-gradient(90deg, #0e1424, #151d32, #0e1424);
             border-bottom: 1px solid var(--border-glass);
-            padding: 2.75rem 5rem;
+            padding: 3rem 5.5rem;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
+            gap: 2.5rem;
             text-align: center;
         }
 
         .ribbon-num {
-            font-size: 3.5rem;
-            font-weight: 800;
+            font-size: 3.8rem;
+            font-weight: 900;
             line-height: 1;
             letter-spacing: -0.04em;
             margin-bottom: 0.5rem;
@@ -215,22 +251,23 @@
         }
 
         .ribbon-label {
-            font-size: 0.875rem;
+            font-size: 0.9rem;
             font-weight: 700;
-            color: #cbd5e1;
+            color: #f1f5f9;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.25rem;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.35rem;
         }
 
         .ribbon-sub {
-            font-size: 0.8rem;
-            color: var(--text-dim);
+            font-size: 0.825rem;
+            color: var(--text-muted);
+            line-height: 1.4;
         }
 
         /* Showcase Module Sections */
         .showcase-section {
-            padding: 4.5rem 5rem;
+            padding: 5rem 5.5rem;
             border-bottom: 1px solid var(--border-glass);
         }
 
@@ -238,27 +275,78 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.85rem;
             color: var(--accent);
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 0.5rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.6rem;
             display: block;
         }
 
         .section-heading {
-            font-size: 2.5rem;
+            font-size: 2.75rem;
             font-weight: 800;
             letter-spacing: -0.03em;
             color: #fff;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.85rem;
         }
 
         .section-subheading {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: var(--text-muted);
-            max-width: 900px;
-            line-height: 1.6;
-            margin-bottom: 2.5rem;
+            max-width: 980px;
+            line-height: 1.65;
+            margin-bottom: 3rem;
+        }
+
+        /* Image Display Showcase Frame */
+        .img-showcase-frame {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+            background: #090d16;
+            margin: 2.5rem 0;
+            position: relative;
+        }
+
+        .img-showcase-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .img-showcase-frame:hover img {
+            transform: scale(1.01);
+        }
+
+        .img-caption-bar {
+            padding: 1.25rem 2rem;
+            background: rgba(10, 14, 24, 0.95);
+            border-top: 1px solid var(--border-glass);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .img-caption-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .img-caption-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            background: rgba(99, 102, 241, 0.15);
+            color: #a5b4fc;
+            padding: 0.25rem 0.65rem;
+            border-radius: 4px;
+            border: 1px solid rgba(99, 102, 241, 0.3);
         }
 
         /* Grids & Cards */
@@ -272,186 +360,187 @@
             border-radius: var(--radius-md);
             padding: 2.25rem;
             position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .board-card:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-3px);
         }
 
         .card-icon-box {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
             background: rgba(99, 102, 241, 0.15);
             color: #818cf8;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.35rem;
+            font-size: 1.45rem;
             margin-bottom: 1.25rem;
         }
 
         .card-title {
-            font-size: 1.25rem;
-            font-weight: 700;
+            font-size: 1.3rem;
+            font-weight: 800;
             color: #fff;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.65rem;
         }
 
         .card-text {
-            font-size: 0.925rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
-            line-height: 1.6;
+            line-height: 1.65;
         }
 
         /* Persona Showcase */
         .persona-box {
-            background: #111728;
+            background: #0f1628;
             border: 1px solid var(--border-glass);
             border-radius: var(--radius-md);
-            padding: 2.25rem;
+            padding: 2.5rem;
+            position: relative;
         }
 
         .persona-header {
             display: flex;
             align-items: center;
-            gap: 1.25rem;
-            margin-bottom: 1.5rem;
+            gap: 1.5rem;
+            margin-bottom: 1.75rem;
         }
 
         .persona-avatar {
-            width: 64px;
-            height: 64px;
+            width: 68px;
+            height: 68px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white;
-            font-weight: 800;
-            font-size: 1.35rem;
+            font-weight: 900;
+            font-size: 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
         }
 
-        /* Mockup Visual Frame */
-        .mockup-display {
-            background: #090d16;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-lg);
-            padding: 2rem;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
-            margin: 2rem 0;
+        /* Peer Benchmarking Special Highlight Cards */
+        .peer-card-featured {
+            background: linear-gradient(180deg, rgba(16, 185, 129, 0.08) 0%, rgba(15, 23, 42, 0.9) 100%);
+            border: 2px solid rgba(16, 185, 129, 0.4);
+            border-radius: var(--radius-md);
+            padding: 2.25rem;
+            position: relative;
         }
 
-        .mockup-bar {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding-bottom: 1rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid var(--border-glass);
+        .badge-similar-domain {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid #10b981;
+            color: #6ee7b7;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 0.3rem 0.8rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
         }
 
-        .circle { width: 12px; height: 12px; border-radius: 50%; }
-        .c-red { background: #ef4444; }
-        .c-yellow { background: #f59e0b; }
-        .c-green { background: #10b981; }
-
-        /* UI Component Simulation */
-        .ui-sim-card {
-            background: #ffffff;
-            color: #111827;
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        .usp-comparison-box {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-sm);
+            padding: 1.25rem;
+            margin-top: 1.25rem;
         }
 
         /* Tables */
         .showcase-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.925rem;
-            margin-top: 1rem;
+            font-size: 0.95rem;
+            margin-top: 1.5rem;
+            background: #0d1322;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--border-glass);
         }
 
         .showcase-table th {
             text-align: left;
-            padding: 1rem 1.25rem;
+            padding: 1.2rem 1.5rem;
             background: rgba(255, 255, 255, 0.04);
             border-bottom: 1px solid var(--border-glass);
             color: #a5b4fc;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
-            font-size: 0.775rem;
-            letter-spacing: 0.06em;
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
         }
 
         .showcase-table td {
-            padding: 1.1rem 1.25rem;
+            padding: 1.25rem 1.5rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             color: #cbd5e1;
             vertical-align: top;
+            line-height: 1.6;
         }
 
         .showcase-table tr:hover td {
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        /* Quotes */
-        .quote-banner {
-            background: rgba(99, 102, 241, 0.06);
-            border-left: 4px solid var(--accent);
-            padding: 2.25rem 3rem;
-            border-radius: 0 var(--radius-md) var(--radius-md) 0;
-            font-style: italic;
-            font-size: 1.2rem;
-            line-height: 1.65;
-            color: #cbd5e1;
-            margin: 2rem 0;
-        }
-
-        .quote-author {
-            display: block;
-            margin-top: 1rem;
-            font-style: normal;
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--accent);
+            background: rgba(99, 102, 241, 0.04);
         }
 
         /* Footer */
         .showcase-footer {
-            padding: 4.5rem 5rem;
-            background: #080b12;
+            padding: 5rem 5.5rem;
+            background: #070910;
             text-align: center;
         }
     </style>
 </head>
 <body>
 
-    <!-- Behance Top Navigation -->
+    <!-- Behance Top Navigation Bar -->
     <header class="behance-topbar">
         <div class="behance-brand">
             <span class="behance-logo">Bē</span>
-            <span style="font-weight: 700; font-size: 0.95rem;">VUFIX — 1400px Behance Presentation Board</span>
+            <span class="behance-project-title">VUFIX: Designing Frictionless Hostel Maintenance · Behance Case Study</span>
         </div>
         <div>
             <a href="../index.html" class="btn-secondary">
-                <i class="fa-solid fa-play"></i> Launch App
+                <i class="fa-solid fa-play"></i> Live App Portal
+            </a>
+            <a href="../single_page_app.html" class="btn-secondary">
+                <i class="fa-solid fa-code"></i> Standalone SPA
             </a>
             <a href="../presentation/presentation_deck.html" class="btn-secondary">
                 <i class="fa-solid fa-layer-group"></i> 7-Slide Deck
             </a>
+            <a href="https://www.behance.net/gallery/256325853/UIUX-Project" target="_blank" class="btn-action">
+                <i class="fa-brands fa-behance"></i> View on Behance
+            </a>
         </div>
     </header>
 
-    <!-- 1400px Fixed Showcase Canvas -->
+    <!-- 1400px Main Case Study Board -->
     <main class="showcase-board-1400">
 
-        <!-- 1. HERO SHOWCASE -->
+        <!-- 0. HERO BANNER BLOCK -->
         <section class="showcase-hero">
             <div class="hero-tag">
-                <i class="fa-solid fa-award text-warning"></i> Featured Behance Case Study · STET301 End-Term Examination
+                <i class="fa-solid fa-award text-warning"></i> End-Term UX Case Study · Human Computer Interaction (STET301)
             </div>
             <h1 class="hero-title">VUFIX: Designing Frictionless Hostel Maintenance</h1>
             <p class="hero-subtitle">
-                An end-to-end human-centered UX ecosystem bridging 1,200+ residential students with campus facilities administration at Vijaybhoomi University. Evaluated with 5 real campus users and benchmarked against 3 student teams.
+                A Dual-Role Progressive Web Ecosystem for Campus Facilities Management at Vijaybhoomi University. Evaluated with 5 real campus users and benchmarked against 3 student teams.
             </p>
+
+            <div class="hero-quote">
+                “How we transformed hostel maintenance from a paper-register system into a simple and transparent digital system, achieving an 89.0 SUS Usability Score and 96% Task Completion Rate.”
+            </div>
 
             <div class="hero-meta-row">
                 <div>
@@ -467,75 +556,96 @@
                     <div class="meta-col-val">B.Tech Computer Science & Engineering</div>
                 </div>
                 <div>
-                    <div class="meta-col-title">Format & Tools</div>
-                    <div class="meta-col-val">1400px Canvas · Figma · Vanilla JS</div>
+                    <div class="meta-col-title">Published Format</div>
+                    <div class="meta-col-val">1400px Canvas · Figma · Vanilla Web Architecture</div>
                 </div>
             </div>
         </section>
 
-        <!-- 2. QUANTITATIVE IMPACT RIBBON -->
+        <!-- 1. EXECUTIVE IMPACT HIGHLIGHTS -->
         <section class="showcase-ribbon">
             <div>
                 <div class="ribbon-num">89.0</div>
                 <div class="ribbon-label">SUS Usability Score</div>
-                <div class="ribbon-sub">Jumped from 64.5 (Grade D to Grade A+)</div>
+                <div class="ribbon-sub">Improved from 64.5 baseline (Grade D to Grade A+ Superior)</div>
             </div>
             <div>
-                <div class="ribbon-num">96%</div>
+                <div class="ribbon-num">96.0%</div>
                 <div class="ribbon-label">Task Completion Rate</div>
-                <div class="ribbon-sub">Zero abandoned complaint submissions</div>
+                <div class="ribbon-sub">Across 5 benchmark tasks with 0 abandoned submissions</div>
             </div>
             <div>
                 <div class="ribbon-num">38s</div>
                 <div class="ribbon-label">Mean Filing Time</div>
-                <div class="ribbon-sub">69% reduction from 124 seconds baseline</div>
+                <div class="ribbon-sub">Reduced from 124 seconds (69% faster reporting speed)</div>
             </div>
             <div>
                 <div class="ribbon-num">100%</div>
-                <div class="ribbon-label">Verification Closure</div>
-                <div class="ribbon-sub">Mandatory student sign-off loop</div>
+                <div class="ribbon-label">Verified Resolution Rate</div>
+                <div class="ribbon-sub">Mandatory two-way resident sign-off before ticket closure</div>
             </div>
         </section>
 
-        <!-- 3. THE PROBLEM SPACE -->
+        <!-- IMAGE SHOWCASE: FULL PORTAL HERO PREVIEW -->
+        <section class="showcase-section" style="padding-top: 3.5rem; padding-bottom: 2rem;">
+            <div class="img-showcase-frame">
+                <img src="../images/vufix_student_dashboard_1790550191882.jpg" alt="VUFIX Student Portal & Live Stepper Dashboard">
+                <div class="img-caption-bar">
+                    <div class="img-caption-title">
+                        <i class="fa-solid fa-desktop text-primary"></i> Figure 1.0: VUFIX Student Maintenance Dashboard & Live Timeline Stepper
+                    </div>
+                    <div class="img-caption-tag">STUDENT PORTAL UI</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 01 / THE CONTEXT & PROBLEM DISCOVERY -->
         <section class="showcase-section">
-            <span class="section-eyebrow">01 / Problem Discovery</span>
+            <span class="section-eyebrow">01 / The Context & Problem Discovery</span>
             <h2 class="section-heading">The "Black Hole" of Dormitory Maintenance</h2>
             <p class="section-subheading">
-                In residential universities, maintenance breakdown is constant. However, paper logbooks and fragmented WhatsApp groups created systemic failure across 4 hostel blocks.
+                At a residential university campus with more than 1,200 students across 4 hostel blocks, maintenance breakdown is constant: leaking taps, broken ceiling fans, damaged study desks, blown electrical sockets, and unstable Wi-Fi. Earlier, students mainly reported these problems through physical registers at the hostel security desk.
             </p>
 
             <div class="grid-3">
-                <div class="board-card" style="border-left: 3px solid var(--danger);">
-                    <div class="card-icon-box" style="background: rgba(239, 68, 68, 0.15); color: #f87171;"><i class="fa-solid fa-eye-slash"></i></div>
-                    <h3 class="card-title">Zero Status Transparency</h3>
+                <div class="board-card" style="border-left: 4px solid var(--danger);">
+                    <div class="card-icon-box" style="background: rgba(239, 68, 68, 0.15); color: #f87171;">
+                        <i class="fa-solid fa-eye-slash"></i>
+                    </div>
+                    <h3 class="card-title">1. The Communication Problem</h3>
                     <p class="card-text">
-                        Students wrote complaints in paper registers at security desks. Once signed, tickets vanished into a void with no tracking or updates, leaving students in chronic anxiety.
+                        After writing a complaint in the paper logbook, students had no easy way to know what was happening. There was zero digital tracking, forcing students to repeatedly visit the warden's office or make anxious phone calls.
                     </p>
                 </div>
-                <div class="board-card" style="border-left: 3px solid var(--warning);">
-                    <div class="card-icon-box" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;"><i class="fa-solid fa-route"></i></div>
-                    <h3 class="card-title">Misrouted Technician Triage</h3>
+
+                <div class="board-card" style="border-left: 4px solid var(--warning);">
+                    <div class="card-icon-box" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;">
+                        <i class="fa-solid fa-route"></i>
+                    </div>
+                    <h3 class="card-title">2. Wrong Technician Assignment</h3>
                     <p class="card-text">
-                        Hostel wardens lacked structured categorization, routinely dispatching electrical technicians to plumbing emergencies, creating 48-hour resolution lags.
+                        Maintenance complaints were managed manually. Often an electrical issue was sent to a plumber or a plumbing issue to an electrician, creating 48-hour resolution lags and immense administrative chaos.
                     </p>
                 </div>
-                <div class="board-card" style="border-left: 3px solid #38bdf8;">
-                    <div class="card-icon-box" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8;"><i class="fa-solid fa-ghost"></i></div>
-                    <h3 class="card-title">Phantom Resolutions</h3>
+
+                <div class="board-card" style="border-left: 4px solid #38bdf8;">
+                    <div class="card-icon-box" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8;">
+                        <i class="fa-solid fa-ghost"></i>
+                    </div>
+                    <h3 class="card-title">3. Phantom Resolutions</h3>
                     <p class="card-text">
-                        Staff marked tickets as "Done" on clipboards without resident verification. Students returned from class only to find water still leaking.
+                        Complaints were marked "Done" on clipboards by staff without the student ever confirming the repair. Students returned from classes only to find the tap still leaking and the fan still dead.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- 4. USER PERSONAS & EMPATHY -->
+        <!-- 02 / EMPATHY MODELING & USER PERSONAS -->
         <section class="showcase-section">
-            <span class="section-eyebrow">02 / Human-Centered Modeling</span>
-            <h2 class="section-heading">User Personas & Empathy Framework</h2>
+            <span class="section-eyebrow">02 / Empathy Modeling & User Personas</span>
+            <h2 class="section-heading">Dual-Sided Mental Models: Student & Warden</h2>
             <p class="section-subheading">
-                Solving for both mental models: the time-crunched residential student and the high-volume administrative warden.
+                We designed VUFIX by solving for both ends of the campus ecosystem: the time-pressured residential student and the high-volume facilities administrator.
             </p>
 
             <div class="grid-2">
@@ -543,17 +653,17 @@
                     <div class="persona-header">
                         <div class="persona-avatar">PP</div>
                         <div>
-                            <div style="font-size: 1.25rem; font-weight: 800; color: white;">Parth Pawar</div>
-                            <div style="font-size: 0.85rem; color: var(--accent); font-weight: 600;">Primary Student Persona · 3rd Yr B.Tech CSE</div>
+                            <div style="font-size: 1.35rem; font-weight: 800; color: white;">Parth Pawar</div>
+                            <div style="font-size: 0.9rem; color: var(--accent); font-weight: 600;">Primary Student Persona · 3rd Year B.Tech CSE (Hostel A, Room A1-101)</div>
                         </div>
                     </div>
-                    <p style="font-size: 0.9rem; color: #cbd5e1; margin-bottom: 1rem;">
-                        <strong>Context:</strong> Resident of Room A1-101 (Hostel A). Works late on code, needs immediate repair resolution during exam weeks.
+                    <p style="font-size: 0.95rem; color: #cbd5e1; margin-bottom: 1.25rem; line-height: 1.6;">
+                        <strong>Mental Model:</strong> Digital native who expects instant app responsiveness, zero redundant typing, and predictable repair updates during hectic semester project deadlines.
                     </p>
-                    <ul style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; padding-left: 1.25rem;">
-                        <li><strong>Pain Point:</strong> Hates wasting hours queuing at the warden office.</li>
-                        <li><strong>Goal:</strong> File in under 60s and track exact technician ETA.</li>
-                        <li><strong>Core Need:</strong> Direct escalation path to the Warden if delayed.</li>
+                    <ul style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.8; padding-left: 1.25rem;">
+                        <li><strong>Key Pain Point:</strong> Complete uncertainty regarding when staff will arrive at his room.</li>
+                        <li><strong>Core Need:</strong> Submit a complaint in under 60 seconds, view live progress, and get direct escalation options.</li>
+                        <li><strong>Behavioral Tendency:</strong> Reluctant to fill long 10-field forms; abandons tasks if UI is confusing.</li>
                     </ul>
                 </div>
 
@@ -561,127 +671,361 @@
                     <div class="persona-header">
                         <div class="persona-avatar" style="background: linear-gradient(135deg, #059669, #10b981);">RB</div>
                         <div>
-                            <div style="font-size: 1.25rem; font-weight: 800; color: white;">Rinu Babu</div>
-                            <div style="font-size: 0.85rem; color: #34d399; font-weight: 600;">Hostel Warden Admin Persona · Administration</div>
+                            <div style="font-size: 1.35rem; font-weight: 800; color: white;">Rinu Babu</div>
+                            <div style="font-size: 0.9rem; color: #34d399; font-weight: 600;">Hostel Warden Admin Persona · Campus Residential Administration</div>
                         </div>
                     </div>
-                    <p style="font-size: 0.9rem; color: #cbd5e1; margin-bottom: 1rem;">
-                        <strong>Context:</strong> Manages maintenance, discipline, and facilities across 4 residential blocks with 4 staff technicians.
+                    <p style="font-size: 0.95rem; color: #cbd5e1; margin-bottom: 1.25rem; line-height: 1.6;">
+                        <strong>Mental Model:</strong> High-stress administrative role juggling hundreds of daily hostel grievances, staff rosters, and parent escalations. Needs dense, actionable dashboards.
                     </p>
-                    <ul style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; padding-left: 1.25rem;">
-                        <li><strong>Pain Point:</strong> Flooded by duplicate phone calls and WhatsApp pings.</li>
-                        <li><strong>Goal:</strong> High-density dashboard with 1-click staff dispatch.</li>
-                        <li><strong>Core Need:</strong> Urgent escalation banner to prevent student unrest.</li>
+                    <ul style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.8; padding-left: 1.25rem;">
+                        <li><strong>Key Pain Point:</strong> Flooded by duplicate complaints, WhatsApp pings, and missed emergencies.</li>
+                        <li><strong>Core Need:</strong> One unified portal to view pending tickets, filter by urgency, and assign specialized technicians.</li>
+                        <li><strong>Behavioral Tendency:</strong> Needs quick 1-click status transitions and clear visual urgency badges.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- 5. USABILITY TESTING & HEURISTICS -->
-        <section class="showcase-section">
-            <span class="section-eyebrow">03 / Usability Testing (25% Weightage)</span>
-            <h2 class="section-heading">Stress-Testing with 5 Real Users & 10 Nielsen Heuristics</h2>
-            <p class="section-subheading">
-                Concurrent Think-Aloud Protocol with 5 campus stakeholders: Aryan S., Ananya Sharma, Kabir Mehta, Priya Iyer, and Warden Assistant Mr. Dilip Rao.
-            </p>
-
+        <!-- IMAGE SHOWCASE: WARDEN & AUTH UI -->
+        <section class="showcase-section" style="padding-top: 3rem; padding-bottom: 3rem;">
             <div class="grid-2">
-                <div class="board-card" style="border-left: 4px solid var(--danger);">
-                    <div style="font-size: 0.75rem; text-transform: uppercase; color: #f87171; font-weight: 700; margin-bottom: 0.35rem;">Broken Heuristic #2: Match System & Real World</div>
-                    <h3 class="card-title">Friction: Electrical vs Furniture Dilemma</h3>
-                    <p class="card-text" style="margin-bottom: 0.75rem;">
-                        Users reporting a broken study desk lamp socket hesitated for 25+ seconds between Electrical and Furniture.
-                    </p>
-                    <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); padding: 0.75rem; border-radius: 8px; font-size: 0.85rem; color: #86efac;">
-                        <strong>Design Fix:</strong> Enriched category cards with explicit micro-labels (Electrical: Fan, Light, Socket, Geyser; Furniture: Desk, Chair, Lock).
+                <div class="img-showcase-frame" style="margin: 0;">
+                    <img src="../images/vufix_login_screen_1790550182565.jpg" alt="VUFIX Glassmorphism Login & Quick Presets">
+                    <div class="img-caption-bar">
+                        <div class="img-caption-title"><i class="fa-solid fa-lock text-primary"></i> Figure 2.1: 1-Tap Role Presets & Auth</div>
+                        <div class="img-caption-tag">AUTHENTICATION</div>
                     </div>
                 </div>
-
-                <div class="board-card" style="border-left: 4px solid var(--warning);">
-                    <div style="font-size: 0.75rem; text-transform: uppercase; color: #fbbf24; font-weight: 700; margin-bottom: 0.35rem;">Broken Heuristic #5: Error Prevention</div>
-                    <h3 class="card-title">Friction: Premature Warden Escalation</h3>
-                    <p class="card-text" style="margin-bottom: 0.75rem;">
-                        Freshman users clicked "Escalate to Warden" 10 minutes after filing, mistakenly thinking it was a fast-track button.
-                    </p>
-                    <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); padding: 0.75rem; border-radius: 8px; font-size: 0.85rem; color: #86efac;">
-                        <strong>Design Fix:</strong> Implemented dynamic SLA timer gating ("Eligible for Escalation in 18h") and a modal requiring a stated reason.
-                    </div>
-                </div>
-
-                <div class="board-card" style="border-left: 4px solid var(--accent);">
-                    <div style="font-size: 0.75rem; text-transform: uppercase; color: #38bdf8; font-weight: 700; margin-bottom: 0.35rem;">Broken Heuristic #6: Recognition Rather Than Recall</div>
-                    <h3 class="card-title">Friction: Staff Dispatch Trade Confusion</h3>
-                    <p class="card-text" style="margin-bottom: 0.75rem;">
-                        The warden assistant struggled to remember which technician handled specific repairs based solely on staff names in the dropdown.
-                    </p>
-                    <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); padding: 0.75rem; border-radius: 8px; font-size: 0.85rem; color: #86efac;">
-                        <strong>Design Fix:</strong> Added verified trade specialty badges (Plumbing, Electrical, IT) and automated skill-matching presets.
-                    </div>
-                </div>
-
-                <div class="board-card" style="border-left: 4px solid #a855f7;">
-                    <div style="font-size: 0.75rem; text-transform: uppercase; color: #c084fc; font-weight: 700; margin-bottom: 0.35rem;">Broken Heuristic #3: User Control and Freedom</div>
-                    <h3 class="card-title">Friction: Reopening Anxiety</h3>
-                    <p class="card-text" style="margin-bottom: 0.75rem;">
-                        Students hesitated to click "No, Still Broken" due to fear that it would delete their prior ticket or anger the maintenance staff.
-                    </p>
-                    <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); padding: 0.75rem; border-radius: 8px; font-size: 0.85rem; color: #86efac;">
-                        <strong>Design Fix:</strong> Reassuring confirmation modal explaining that reopening keeps the complete history and triggers high-priority review.
+                <div class="img-showcase-frame" style="margin: 0;">
+                    <img src="../images/vufix_complaint_wizard_1790550227771.jpg" alt="VUFIX 3-Step Guided Submission Wizard">
+                    <div class="img-caption-bar">
+                        <div class="img-caption-title"><i class="fa-solid fa-wand-magic-sparkles text-accent"></i> Figure 2.2: 3-Step Guided Wizard</div>
+                        <div class="img-caption-tag">INTERACTION DESIGN</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 6. PEER BENCHMARKING -->
+        <!-- 03 / THE SOLUTION: CORE INTERACTION MECHANICS -->
         <section class="showcase-section">
-            <span class="section-eyebrow">04 / Peer Benchmarking (25% Weightage)</span>
-            <h2 class="section-heading">Comparative Analysis Across 3 Classmates</h2>
+            <span class="section-eyebrow">03 / The Solution: Core Interaction Mechanics</span>
+            <h2 class="section-heading">Engineered for Usability & Zero Cognitive Load</h2>
             <p class="section-subheading">
-                Structured architectural critique sessions with fellow STET301 student teams: Kunal / Ganesh, Prasad, and Neermay.
+                We designed VUFIX using simple and clear interaction patterns grounded in Jakob Nielsen’s usability heuristics.
             </p>
 
+            <div class="grid-4">
+                <div class="board-card">
+                    <div class="card-icon-box"><i class="fa-solid fa-list-check"></i></div>
+                    <h3 class="card-title">1. 3-Step Guided Wizard</h3>
+                    <p class="card-text">
+                        <strong>Category → Details → Review:</strong> Instead of showing a massive intimidating form, progressive disclosure breaks filing into lightweight cognitive chunks.
+                    </p>
+                </div>
+
+                <div class="board-card">
+                    <div class="card-icon-box"><i class="fa-solid fa-timeline"></i></div>
+                    <h3 class="card-title">2. Live Status Stepper</h3>
+                    <p class="card-text">
+                        <strong>Submitted → Assigned → In Progress → Resolved:</strong> Real-time visual timeline eliminates student anxiety and eliminates the need to visit the warden office.
+                    </p>
+                </div>
+
+                <div class="board-card">
+                    <div class="card-icon-box"><i class="fa-solid fa-bell-concierge"></i></div>
+                    <h3 class="card-title">3. 24h SLA Escalation</h3>
+                    <p class="card-text">
+                        If a complaint is delayed, the student can escalate directly to the Warden. A dynamic 24-hour countdown timer prevents premature or abusive triggers.
+                    </p>
+                </div>
+
+                <div class="board-card">
+                    <div class="card-icon-box"><i class="fa-solid fa-circle-check"></i></div>
+                    <h3 class="card-title">4. Two-Way Verification</h3>
+                    <p class="card-text">
+                        Residents must explicitly choose <strong>“Yes, It’s Fixed”</strong> or <strong>“No, Still Broken”</strong> before a ticket is archived, completely ending phantom closures.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- IMAGE SHOWCASE: WARDEN MANAGEMENT DASHBOARD -->
+        <section class="showcase-section" style="padding-top: 2rem; padding-bottom: 2rem;">
+            <div class="img-showcase-frame">
+                <img src="../images/vufix_warden_dashboard_1790550217168.jpg" alt="VUFIX Warden Dashboard & Ticket Roster">
+                <div class="img-caption-bar">
+                    <div class="img-caption-title">
+                        <i class="fa-solid fa-shield-halved text-success"></i> Figure 3.0: Warden Administration Dashboard with Urgent Escalation Banner & Technician Roster
+                    </div>
+                    <div class="img-caption-tag">WARDEN ADMIN PORTAL</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04 / USABILITY TESTING & HEURISTIC BREAKDOWN -->
+        <section class="showcase-section">
+            <span class="section-eyebrow">04 / Usability Testing (25% Exam Weightage)</span>
+            <h2 class="section-heading">Stress-Testing with 5 Real Users & 10 Heuristics</h2>
+            <p class="section-subheading">
+                We conducted rigorous Usability Testing using the Concurrent Think-Aloud Protocol with 5 real campus participants: <strong>Aryan S.</strong> (3rd Yr CS), <strong>Ansh</strong> (2nd Yr Design), <strong>Anirudh</strong> (1st Yr Hostelite), <strong>Anton Singh</strong> (4th Yr B.Tech), and <strong>Mr. Dilip Rao</strong> (Warden Office Assistant).
+            </p>
+
+            <div class="grid-2">
+                <div class="board-card" style="border-left: 4px solid var(--danger);">
+                    <div style="font-size: 0.75rem; text-transform: uppercase; color: #f87171; font-weight: 800; margin-bottom: 0.4rem;">
+                        Heuristic #2: Match System & Real World
+                    </div>
+                    <h3 class="card-title">Friction: Electrical vs Furniture Dilemma</h3>
+                    <p class="card-text" style="margin-bottom: 1rem;">
+                        Users reporting a broken study desk lamp socket hesitated for 25+ seconds between Electrical and Furniture categories.
+                    </p>
+                    <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.25); padding: 0.85rem 1.1rem; border-radius: 8px; font-size: 0.875rem; color: #86efac; line-height: 1.5;">
+                        <strong>Design Solution:</strong> Enriched category cards with explicit micro-labels (e.g. <em>Electrical: Fan, Socket, Geyser, Switch; Furniture: Chair, Desk, Lock</em>).
+                    </div>
+                </div>
+
+                <div class="board-card" style="border-left: 4px solid var(--warning);">
+                    <div style="font-size: 0.75rem; text-transform: uppercase; color: #fbbf24; font-weight: 800; margin-bottom: 0.4rem;">
+                        Heuristic #5: Error Prevention
+                    </div>
+                    <h3 class="card-title">Friction: Premature Warden Escalation</h3>
+                    <p class="card-text" style="margin-bottom: 1rem;">
+                        Freshmen users clicked "Escalate to Warden" 10 minutes after filing, mistakenly thinking it was a general fast-track button.
+                    </p>
+                    <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.25); padding: 0.85rem 1.1rem; border-radius: 8px; font-size: 0.875rem; color: #86efac; line-height: 1.5;">
+                        <strong>Design Solution:</strong> Gated button behind a 24-hour countdown timer and added a modal requiring an explicit escalation justification.
+                    </div>
+                </div>
+
+                <div class="board-card" style="border-left: 4px solid var(--accent);">
+                    <div style="font-size: 0.75rem; text-transform: uppercase; color: #38bdf8; font-weight: 800; margin-bottom: 0.4rem;">
+                        Heuristic #6: Recognition Rather Than Recall
+                    </div>
+                    <h3 class="card-title">Friction: Technician Trade Confusion</h3>
+                    <p class="card-text" style="margin-bottom: 1rem;">
+                        The warden assistant struggled to recall which technician handled specific repairs based solely on staff names in the dropdown.
+                    </p>
+                    <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.25); padding: 0.85rem 1.1rem; border-radius: 8px; font-size: 0.875rem; color: #86efac; line-height: 1.5;">
+                        <strong>Design Solution:</strong> Added trade specialty badges (Plumbing Specialist, Electrical Specialist, IT Helpdesk) and automated category skill-matching.
+                    </div>
+                </div>
+
+                <div class="board-card" style="border-left: 4px solid #c084fc;">
+                    <div style="font-size: 0.75rem; text-transform: uppercase; color: #c084fc; font-weight: 800; margin-bottom: 0.4rem;">
+                        Heuristic #3: User Control & Freedom
+                    </div>
+                    <h3 class="card-title">Friction: Reopening Anxiety</h3>
+                    <p class="card-text" style="margin-bottom: 1rem;">
+                        Students hesitated to click "No, Still Broken" due to fear that it would delete their prior ticket history or anger facilities staff.
+                    </p>
+                    <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.25); padding: 0.85rem 1.1rem; border-radius: 8px; font-size: 0.875rem; color: #86efac; line-height: 1.5;">
+                        <strong>Design Solution:</strong> Designed a reassuring confirmation dialog emphasizing that complete timeline history is preserved with high priority.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05 / ARCHITECTURAL STRESS-TESTING -->
+        <section class="showcase-section">
+            <span class="section-eyebrow">05 / System Architecture & Resilience</span>
+            <h2 class="section-heading">Architectural Stress-Testing Under Unpredictable Human Behavior</h2>
+            <p class="section-subheading">
+                We validated how the underlying client-side system architecture held up under chaotic real-world edge cases.
+            </p>
+
+            <div class="grid-3">
+                <div class="board-card">
+                    <div class="card-icon-box"><i class="fa-solid fa-hand-pointer"></i></div>
+                    <h3 class="card-title">Double-Click Race Conditions</h3>
+                    <p class="card-text">
+                        Users on slow campus Wi-Fi double-clicked the submit button rapidly. Handled with instant button disabling, loading spinners, and debouncing to prevent duplicate tickets.
+                    </p>
+                </div>
+
+                <div class="board-card">
+                    <div class="card-icon-box"><i class="fa-solid fa-arrows-rotate"></i></div>
+                    <h3 class="card-title">Multi-Tab State Sync</h3>
+                    <p class="card-text">
+                        Users opening both Student and Warden views in separate tabs. Solved via a reactive `window.addEventListener('storage')` event bus that immediately re-renders across all tabs.
+                    </p>
+                </div>
+
+                <div class="board-card">
+                    <div class="card-icon-box"><i class="fa-solid fa-shield-virus"></i></div>
+                    <h3 class="card-title">Defensive Input Sanitization</h3>
+                    <p class="card-text">
+                        Users pasting emoji strings, massive essays, or HTML snippets into description fields. Sanitized with `textContent` escaping and CSS word-break bounding.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- IMAGE SHOWCASE: PEER BENCHMARKING VISUAL BOARD -->
+        <section class="showcase-section" style="padding-top: 2rem; padding-bottom: 2rem;">
+            <div class="img-showcase-frame">
+                <img src="../images/vufix_peer_benchmarking.jpg" alt="VUFIX Peer Benchmarking Matrix Infographic">
+                <div class="img-caption-bar">
+                    <div class="img-caption-title">
+                        <i class="fa-solid fa-chart-simple text-warning"></i> Figure 4.0: Peer Benchmarking Infographic — Structural Comparison & USP Analysis Across Campus Teams
+                    </div>
+                    <div class="img-caption-tag">PEER BENCHMARKING (25% WEIGHTAGE)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06 / PEER BENCHMARKING & DISCUSSION -->
+        <section class="showcase-section">
+            <span class="section-eyebrow">06 / Peer Benchmarking (25% Exam Weightage)</span>
+            <h2 class="section-heading">Comparative Analysis & Structural Decision-Making</h2>
+            <p class="section-subheading">
+                We analyzed our structural UX decisions against fellow STET301 students, including an in-depth direct comparison with <strong>Aryaman Saboo (Same Domain: Hostel Maintenance)</strong>.
+            </p>
+
+            <div class="grid-3" style="margin-bottom: 2.5rem;">
+                <!-- 1. ARYAMAN SABOO (SAME DOMAIN) -->
+                <div class="peer-card-featured">
+                    <div class="badge-similar-domain"><i class="fa-solid fa-link"></i> Same Domain</div>
+                    <div style="font-size: 1.4rem; font-weight: 800; color: white; margin-bottom: 0.25rem;">Aryaman Saboo</div>
+                    <div style="font-size: 0.85rem; color: #6ee7b7; font-weight: 700; margin-bottom: 1.25rem;">FretBox Hostel Maintenance App</div>
+                    
+                    <p style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 1rem;">
+                        <strong>Their Model:</strong> Single-scroll monolithic complaint form with external WhatsApp webhook notifications.
+                    </p>
+                    
+                    <div class="usp-comparison-box">
+                        <div style="font-size: 0.8rem; font-weight: 800; color: #38bdf8; text-transform: uppercase; margin-bottom: 0.5rem;">
+                            ⚡ Why VUFIX Has Superior USP & Better Model:
+                        </div>
+                        <ul style="font-size: 0.825rem; color: #cbd5e1; line-height: 1.65; padding-left: 1rem;">
+                            <li><strong>3-Step Wizard vs Long Form:</strong> Cuts filing time by 69% (38s vs 124s).</li>
+                            <li><strong>In-App Live Stepper:</strong> Eliminates fragmented external WhatsApp redirects.</li>
+                            <li><strong>2-Way Student Verification:</strong> Gives residents absolute authority before ticket closure.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2. PRASAD (CAMPUS IT HELPDESK) -->
+                <div class="board-card">
+                    <div style="font-size: 1.35rem; font-weight: 800; color: white; margin-bottom: 0.25rem;">Prasad Kakad</div>
+                    <div style="font-size: 0.85rem; color: #818cf8; font-weight: 700; margin-bottom: 1.25rem;">VU-ITDesk (Campus IT Helpdesk)</div>
+                    
+                    <p style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 1rem;">
+                        <strong>Their Model:</strong> Strict 8-stage ITIL hierarchy with automated SLA countdown timers and technical category trees.
+                    </p>
+
+                    <div class="usp-comparison-box">
+                        <div style="font-size: 0.8rem; font-weight: 800; color: #818cf8; text-transform: uppercase; margin-bottom: 0.5rem;">
+                            💡 Key Learning Adopted in VUFIX:
+                        </div>
+                        <p style="font-size: 0.825rem; color: #cbd5e1; line-height: 1.6;">
+                            Incorporated explicit Resolution ETA timestamps set by Warden during staff assignment, giving students a concrete time expectation.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. NEERMAY (CAMPUSSERVE) -->
+                <div class="board-card">
+                    <div style="font-size: 1.35rem; font-weight: 800; color: white; margin-bottom: 0.25rem;">Neermay</div>
+                    <div style="font-size: 0.85rem; color: #fbbf24; font-weight: 700; margin-bottom: 1.25rem;">CampusServe (Facilities & Mess)</div>
+                    
+                    <p style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 1rem;">
+                        <strong>Their Model:</strong> Door QR codes with 48h auto-closure policy without student re-verification.
+                    </p>
+
+                    <div class="usp-comparison-box">
+                        <div style="font-size: 0.8rem; font-weight: 800; color: #fbbf24; text-transform: uppercase; margin-bottom: 0.5rem;">
+                            💡 Key Learning Adopted in VUFIX:
+                        </div>
+                        <p style="font-size: 0.825rem; color: #cbd5e1; line-height: 1.6;">
+                            Replaced auto-closure with mandatory two-way confirmation, ensuring tickets are never prematurely archived without resident sign-off.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Structured Comparative Table -->
             <table class="showcase-table">
                 <thead>
                     <tr>
                         <th>Classmate & Project</th>
+                        <th>Domain Type</th>
                         <th>Their Architectural Approach</th>
-                        <th>VUFIX Structural Choice</th>
-                        <th>Key Architectural Learning Adopted</th>
+                        <th>VUFIX Superior Structural Choice</th>
+                        <th>Why VUFIX Delivers Higher Value (USP)</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><strong>Kunal / Ganesh</strong><br><span style="font-size: 0.75rem; color: var(--text-dim);">Hostel Maintenance (Direct Domain)</span></td>
+                    <tr style="background: rgba(16, 185, 129, 0.05);">
+                        <td>
+                            <strong style="color: #6ee7b7;">Aryaman Saboo</strong><br>
+                            <span style="font-size: 0.8rem; color: var(--text-dim);">FretBox Hostel App</span>
+                        </td>
+                        <td><span style="background: rgba(16,185,129,0.2); color: #6ee7b7; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">Similar Domain</span></td>
                         <td>Monolithic single-scroll long form with external WhatsApp webhook link</td>
-                        <td>Guided 3-Step Wizard with visual category selector cards</td>
-                        <td>Adopted direct 1-tap `tel:` phone shortcut on technician profile for instant emergency contact.</td>
+                        <td>Guided 3-Step Wizard with visual category selector cards & live in-app stepper</td>
+                        <td><strong>69% Faster Submission (38s)</strong> + 2-Way Student Sign-Off + 1-Tap `tel:` direct technician calling.</td>
                     </tr>
                     <tr>
-                        <td><strong>Prasad</strong><br><span style="font-size: 0.75rem; color: var(--text-dim);">Campus IT Helpdesk (Related Domain)</span></td>
-                        <td>Strict 8-state ITIL hierarchy with automated SLA countdown timers</td>
-                        <td>5-milestone visual stepper with student-driven escalation reason</td>
-                        <td>Incorporated explicit Resolution ETA timestamps set by Warden during staff assignment.</td>
+                        <td>
+                            <strong style="color: #a5b4fc;">Prasad Kakad</strong><br>
+                            <span style="font-size: 0.8rem; color: var(--text-dim);">VU-ITDesk</span>
+                        </td>
+                        <td><span style="background: rgba(99,102,241,0.2); color: #a5b4fc; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">Campus IT</span></td>
+                        <td>Complex 8-stage ITIL hierarchy with heavy technical taxonomy</td>
+                        <td>Simplified 5-milestone visual stepper with student-driven escalation gating</td>
+                        <td>Reduced cognitive load for students while adopting concrete Warden ETA timestamps.</td>
                     </tr>
                     <tr>
-                        <td><strong>Neermay</strong><br><span style="font-size: 0.75rem; color: var(--text-dim);">Campus Facilities (Campus Operations)</span></td>
-                        <td>Door QR codes with 48hr auto-closure policy without confirmation</td>
-                        <td>Pre-bound authenticated profiles with active dual confirmation</td>
-                        <td>Refined visual glassmorphic vertical stepper cards and timestamp badges for status clarity.</td>
+                        <td>
+                            <strong style="color: #fde68a;">Neermay</strong><br>
+                            <span style="font-size: 0.8rem; color: var(--text-dim);">CampusServe</span>
+                        </td>
+                        <td><span style="background: rgba(245,158,11,0.2); color: #fde68a; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">Facilities & Mess</span></td>
+                        <td>Door QR codes with 48hr auto-closure policy without resident confirmation</td>
+                        <td>Pre-bound authenticated profiles with active dual confirmation dialog</td>
+                        <td>Zero phantom closures + 100% verified resolution closure rate.</td>
                     </tr>
                 </tbody>
             </table>
-        <!-- 8. FOOTER -->
-        <footer class="showcase-footer">
-            <h3 style="font-size: 1.75rem; font-weight: 800; margin-bottom: 0.5rem; color: white;">VUFIX — Vijaybhoomi University</h3>
-            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;">
-                Crafted for STET301 Human Computer Interaction End-Term Examination 2026.
+        </section>
+
+        <!-- 07 / REFLECTION ON CREATIVE DOWNTIME -->
+        <section class="showcase-section">
+            <span class="section-eyebrow">07 / Reflection & Synthesis</span>
+            <h2 class="section-heading">Creative Downtime & Cognitive Friction</h2>
+            <p class="section-subheading">
+                Aligning with Kyle T. Webster's philosophy on cognitive space, downtime, and human-centered design.
             </p>
-            <div style="display: flex; gap: 1rem; justify-content: center;">
-                <a href="../index.html" class="btn-action" style="padding: 0.75rem 2rem; font-size: 1rem;">
-                    <i class="fa-solid fa-play"></i> Open Interactive App Prototype
+
+            <div class="hero-quote" style="margin-bottom: 2rem;">
+                “If you wanna take full advantage of the creative potential of downtime, you have to allow yourself the space and time to get bored... then your brain switches gears and it starts to wander and tell stories and paint pictures and suddenly, you might have an idea.”
+                <span style="display: block; font-style: normal; font-weight: 700; color: var(--accent); margin-top: 0.5rem;">— Kyle T. Webster</span>
+            </div>
+
+            <p style="font-size: 1.05rem; color: #cbd5e1; line-height: 1.75; margin-bottom: 1.5rem;">
+                While designing VUFIX, we realized that hostel maintenance is not merely a database ticketing problem. It is fundamentally about <strong>relieving psychological uncertainty and cognitive fatigue</strong>. When students return to their dorms exhausted after hours of lectures, they need an interface that respects their mental bandwidth.
+            </p>
+            <p style="font-size: 1.05rem; color: #cbd5e1; line-height: 1.75;">
+                By replacing archaic paper registers with guided micro-interactions, transparent status steppers, and reassuring verification loops, VUFIX delivers a frictionless living experience for 1,200+ residential students.
+            </p>
+        </section>
+
+        <!-- FOOTER & SUBMISSION CALLOUT -->
+        <footer class="showcase-footer">
+            <h3 style="font-size: 2.25rem; font-weight: 900; margin-bottom: 0.75rem; color: white;">VUFIX — Vijaybhoomi University</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 2.5rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Created by <strong>Parth Pawar (2024VUGP0021)</strong> for the Human Computer Interaction (STET301) End-Term Examination, September 2026.
+            </p>
+            <div style="display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap;">
+                <a href="../index.html" class="btn-action" style="padding: 0.85rem 2.25rem; font-size: 1.05rem;">
+                    <i class="fa-solid fa-play"></i> Open Interactive App Portal
                 </a>
-                <a href="../presentation/presentation_deck.html" class="btn-secondary" style="padding: 0.75rem 2rem; font-size: 1rem;">
+                <a href="../presentation/presentation_deck.html" class="btn-secondary" style="padding: 0.85rem 2.25rem; font-size: 1.05rem;">
                     <i class="fa-solid fa-layer-group"></i> 7-Slide Pitch Deck
+                </a>
+                <a href="https://www.behance.net/gallery/256325853/UIUX-Project" target="_blank" class="btn-secondary" style="padding: 0.85rem 2.25rem; font-size: 1.05rem; border-color: var(--behance-blue);">
+                    <i class="fa-brands fa-behance"></i> Live Behance Case Study
                 </a>
             </div>
         </footer>
